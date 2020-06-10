@@ -1,33 +1,33 @@
 body {
     margin: 0;
-    background-image: 
-    url("../Image/Background.png");
+    background-image: url("../Image/Background.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
 #mainBig {
     position: absolute;
     float: left;
-    background-color: white;
-    width: 960px;
-    height: 620px;
-    margin-left: calc(100% / 2 - 480px); 
+    background-image: url("../Image/Main_background.png");
+    width: 800px;
+    height: 600px;
+    margin-left: calc(50% - 400px); 
     margin-top: 15px;
     border-radius: 20px;
     box-shadow: 0 0 10px black;
 }
-.header {
+#header {
     height: 45px;
-    border-bottom: 1px solid #cfcccc;
+    border-bottom: 2px solid white;
 }
 #back {
     text-decoration: none;
-    font-family: 'Circe';
-    font-size: 25px;
-    color: #f5b24e;
+    font-family: 'Algerian';
+    font-size: 20px;
+    color: yellow;
     top: 15px;
     left: 50px;
     position: absolute;
+    filter: contrast(80%);
 }
 .btn_back {
     position: absolute;
@@ -40,24 +40,25 @@ body {
     left: -35px;
 }
 #back:hover {
-    color: #f5914e;
+    filter: contrast(150%);
 }
 #back .btn_back:hover {
     background-position: 150px 0px;
 }
 
 #chooseLanguage {
-    font-family:'Circe';
-    font-size: 25px;
-    color: #f5b24e;
+    font-family: 'Algerian';
+    font-size: 20px;
+    color: yellow;
     position: absolute;
     top: 15px;
-    left: 820px;
+    left: 660px;
     cursor: pointer;
-    width: 100px;
+    width: 120px;
+    filter: contrast(80%);
 }
 #chooseLanguage:hover {
-    color: #f5914e;
+    filter: contrast(150%);
 }
 #triangle {
     width: 0px;
@@ -85,7 +86,7 @@ body {
 
 }
 .Language {
-    font-family:'Circe';
+    font-family: 'Algerian';
     font-size: 20px;
     color:black;
     cursor: pointer;
@@ -97,4 +98,60 @@ body {
 .Language:hover {
     background-color: #267fbf;
     color: white;
+}
+#menuStart {
+    width: 800px;
+    height: 600px;
+    margin-left: calc(50% - 400px); 
+    margin-top: -47px;
+    border-radius: 20px;
+    background-image: url("../Image/menuStart.png");
+    position: absolute;
+}
+.start {
+    position: absolute;
+    background-image: url("../Image/start.png");
+    height: 100px;
+    width: 200px;
+    left: 300px;
+    top: 200px;
+    cursor: pointer;
+}
+.start:hover {
+    filter: contrast(150%);
+}
+.textStart {
+    font-family: 'Algerian';
+    font-size: 30px;
+    margin-left: 35px;
+    margin-top: 30px;
+    color: rgb(245, 3, 3);
+}
+.sound {
+    position: absolute;
+    background-image: url("../Image/sound.png");
+    height: 150px;
+    width: 200px;
+    left: 300px;
+    top: 350px;
+    cursor: pointer;
+}
+.textSound {
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+    color: rgb(245, 3, 3);
+}
+.turnSound {
+    position: absolute;
+    background-image: url("../Image/offSound.png");
+    height: 45px;
+    width: 90px;
+    margin-left: 55px;
+    margin-top: 65px;
+}
+.turnSound:hover {
+    filter: contrast(150%);
 }
