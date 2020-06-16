@@ -2,6 +2,7 @@ var language = "vi";
 var sound = "off";
 $(".start").click(function(){
     $("#menuStart").css({"display" : "none"});
+    GotoLesson();
 });
 $("#chooseLanguage").click(function(){
     $("#languageDialog").slideToggle();
@@ -81,4 +82,22 @@ function turnOnAudio(audio) {
 }
 function turnOffAudio(audio){
     $("audio")[audio].pause();
+}
+var lineContext = $("#line")[0].getContext("2d");
+function GotoLesson() {
+    $("#bodyMain").css({ "display": "block"});
+    lineContext.lineWidth = 3;
+    lineContext.beginPath();
+    lineContext.strokeStyle = "yellow";
+    lineContext.lineCap = "round";
+    drawLine(200, 165, 320, 190);
+    drawLine(200, 370, 400, 370);
+    drawLine(500, 165, 600, 165);
+    drawLine(450, 280, 600, 320);
+    drawLine(420, 450, 600, 470);
+}
+function drawLine(x, y, x1, y1) {
+    lineContext.moveTo(x,y);
+    lineContext.lineTo(x1,y1);
+    lineContext.stroke();
 }
