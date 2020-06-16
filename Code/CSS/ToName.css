@@ -32,20 +32,17 @@ body {
 .btn_back {
     position: absolute;
     background-image: url("../Image/back.png");
-    background-position: 0px 0px;
+    background-position: 150px 0px;
     background-size: cover;
     width: 30px;
     height: 30px;
     top: -2px;
     left: -35px;
+    filter: contrast(130%);
 }
 #back:hover {
     filter: contrast(150%);
 }
-#back .btn_back:hover {
-    background-position: 150px 0px;
-}
-
 #chooseLanguage {
     font-family: 'Algerian';
     font-size: 20px;
@@ -76,11 +73,11 @@ body {
     border: 1px solid #cfcccc;
     box-shadow: 0 0 5px #cfcccc;
     border-radius: 6px;
-    width: 150px;
-    height: 95px;
+    width: 140px;
+    height: 70px;
     position: absolute;
-    left: calc(50% + 305px);
-    top: 60px;
+    left: calc(50% + 260px);
+    top: 40px;
     background-color: white;
     display: none;
 
@@ -90,7 +87,7 @@ body {
     font-size: 20px;
     color:black;
     cursor: pointer;
-    width: 130px;
+    width: 120px;
     height: 24px;
     padding-top: 4px;
     padding-left: 20px;
@@ -101,11 +98,12 @@ body {
 }
 #menuStart {
     width: 800px;
-    height: 600px;
+    height: 550px;
     margin-left: calc(50% - 400px); 
-    margin-top: -47px;
+    margin-top: 47px;
     border-radius: 20px;
     background-image: url("../Image/menuStart.png");
+    background-position: 0px -50px;
     position: absolute;
 }
 .start {
@@ -114,7 +112,7 @@ body {
     height: 100px;
     width: 200px;
     left: 300px;
-    top: 200px;
+    top: 150px;
     cursor: pointer;
 }
 .start:hover {
@@ -133,7 +131,7 @@ body {
     height: 150px;
     width: 200px;
     left: 300px;
-    top: 350px;
+    top: 300px;
     cursor: pointer;
 }
 .textSound {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
     <head>
         <title>Poin and line</title>
         <meta charset="UTF-8">
@@ -9,9 +9,19 @@
     </head>
     <body>
         <div id = "mainBig">
+            <div id="menuStart">
+                <div class="start">
+                    <div class="textStart"> BẮT ĐẦU </div>
+                </div>
+                <div class="sound">
+                    <div class="textSound"> ÂM THANH </div>
+                    <div class="turnSound"></div>
+                    <div class="textSound" style="margin-left: 100px; margin-top: 75px; font-size: 20px; color: rgb(43, 37, 37);"> TẮT </div>
+                </div>
+            </div>
             <div id = "header">
                 <a href="../HTML/ToName.html" id = "back">
-                    TRỞ VỀ
+                    <div class = "backText"> TRỞ VỀ </div>
                     <div class = "btn_back"></div>
                 </a>
                 <div id="chooseLanguage">
@@ -23,18 +33,20 @@
                     <div class="Language">TIẾNG VIỆT</div>
                 </div>
             </div>
-            <div id="menuStart">
-                <div class="start">
-                    <div class="textStart"> BẮT ĐẦU </div>
-                </div>
-                <div class="sound">
-                    <div class="textSound"> ÂM THANH </div>
-                    <div class="turnSound"></div>
-                    <div class="textSound" style="margin-left: 100px; margin-top: 75px; font-size: 20px; color: rgb(43, 37, 37);"> TẮT </div>
-                </div>
-            </div>
             <div id = "bodyMain"></div>
         </div>
+        <audio loop>
+            <source src="../Audio/Theme.mp3" type="audio/mpeg">
+        </audio>
+        <audio>
+            <source src="../Audio/Wrong.mp3" type="audio/mpeg">
+        </audio>
+        <audio>
+            <source src="../Audio/Correct.mp3" type="audio/mpeg">
+        </audio>
+        <audio>
+            <source src="../Audio/Completed.mp3" type="audio/mpeg">
+        </audio>
         <script src="../Javascript/ToName.js"></script>
     </body>
 </html>
