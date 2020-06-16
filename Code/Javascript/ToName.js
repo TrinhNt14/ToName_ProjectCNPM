@@ -95,9 +95,76 @@ function GotoLesson() {
     drawLine(500, 165, 600, 165);
     drawLine(450, 280, 600, 320);
     drawLine(420, 450, 600, 470);
+    addTagName();
 }
 function drawLine(x, y, x1, y1) {
     lineContext.moveTo(x,y);
     lineContext.lineTo(x1,y1);
     lineContext.stroke();
+}
+var tagName = 5;
+function addTagName() {
+    $(".box:eq(5)").mousedown(function(){
+        checkDrag(5);
+    });
+    $(".box:eq(6)").mousedown(function(){
+        checkDrag(6);
+    });
+    $(".box:eq(7)").mousedown(function(){
+        checkDrag(7);
+    });
+    $(".box:eq(8)").mousedown(function(){
+        checkDrag(8);
+    });
+    $(".box:eq(9)").mousedown(function(){
+        checkDrag(9);
+    });
+    $(".box:eq(5)").mouseup(function(){
+        checkDrop();
+    });
+    $(".box:eq(6)").mouseup(function(){
+        checkDrop();
+    });
+    $(".box:eq(7)").mouseup(function(){
+        checkDrop();
+    });
+    $(".box:eq(8)").mouseup(function(){
+        checkDrop();
+    });
+    $(".box:eq(9)").mouseup(function(){
+        checkDrop();
+    });
+}
+var isCorrect = false;
+var expressDragObject = false;
+var mainBig = $("#mainBig");
+var dragObject;
+function checkDrag(i) {
+    tagName = i;
+    dragObject = $(".box:eq(" + tagName + ")");
+    mainBig.mousemove(moveshape);
+    dragObject.mousemove(moveshape);
+    expressDragObject = true;
+}
+function moveshape(e){
+    e.preventDefault();
+    if(isCorrect || !expressDragObject) return;
+    var leftOfMainbig = mainBig.offset().left;
+    var topOfMainbig = mainBig.offset().top;
+    var limitLeft = leftOfMainbig +dragObject.outerWidth()/2;
+    var limitRight = leftOfMainbig + mainBig.outerWidth() - dragObject.outerWidth()/2;
+    var limitTop = topOfMainbig + 45 + dragObject.offset().top/2;
+    var limitBottom = topOfMainbig + mainBig.outerHeight() - dragObject.outerHeight()/2;
+    if(e.pageX >= limitLeft && e.pageX <= limitRight && e.pageY >= limitTop && e.pageY <= limitBottom){
+       dragObject.css({"top" : ((e.pageY - topOfMainbig) - (dragObject.outerHeight() / 2)) + "px"});
+       dragObject.css({"left" : ((e.pageX - leftOfMainbig) - (dragObject.outerWidth() / 2)) + "px"});
+    }
+    else{
+        checkDrop();
+    }
+}
+function checkDrop() {
+    expressDragObject = false;
+    $(".box:eq(" + tagName + ")").css({"top" : "110px"});
+    $(".box:eq(" + tagName + ")").css({"left" : (150 + (tagName-5)*100) + "px"});
 }

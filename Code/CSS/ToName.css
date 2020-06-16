@@ -178,6 +178,7 @@ body {
     left: 75px;
     top: 70px;
     color: red;
+    cursor: pointer;
     /* display: none; */
 }
 .root {
@@ -187,6 +188,7 @@ body {
     left: 265px;
     top: 160px;
     position: absolute;
+    cursor: pointer;
 }
 .trunk {
     width: 270px;
@@ -195,6 +197,7 @@ body {
     left: 265px;
     top: 160px;
     position: absolute;
+    cursor: pointer;
 }
 .leaf {
     width: 270px;
@@ -203,6 +206,7 @@ body {
     left: 265px;
     top: 160px;
     position: absolute;
+    cursor: pointer;
 }
 .flower {
     width: 270px;
@@ -211,6 +215,7 @@ body {
     left: 265px;
     top: 160px;
     position: absolute;
+    cursor: pointer;
 }
 .fruit {
     width: 270px;
@@ -219,6 +224,7 @@ body {
     left: 265px;
     top: 160px;
     position: absolute;
+    cursor: pointer;
 }
 .box {
     width: 60px;
@@ -228,6 +234,7 @@ body {
     left: 150px;
     top: 110px;
     position: absolute;
+    cursor: pointer;
 }
 .box:hover {
     background-color: rgb(0, 225, 255);
