@@ -75,11 +75,12 @@ body {
     border-radius: 6px;
     width: 140px;
     height: 70px;
-    position: absolute;
     left: calc(50% + 260px);
     top: 40px;
     background-color: white;
     display: none;
+    z-index: 2;
+    position: absolute;
 
 }
 .Language {

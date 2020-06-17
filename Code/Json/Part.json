@@ -1,0 +1,81 @@
+var lesson = [];
+lesson.push([
+    {
+        "class" : "trunk",
+        "image" : "../Image/Lesson_1/Trunk.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "root",
+        "image" : "../Image/Lesson_1/Root.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "leaf",
+        "image" : "../Image/Lesson_1/Leaf.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "flower",
+        "image" : "../Image/Lesson_1/Flower.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "fruit",
+        "image" : "../Image/Lesson_1/Fruit.png"
+        // "imageSize" : "270px, 410px"
+    }
+]);
+
+var tagLocation = [];
+tagLocation.push([
+    {
+        "left": "150px",
+        "top": "400px"
+    },
+    {
+        "left": "600px",
+        "top": "500px"
+    },
+    {
+        "left": "600px",
+        "top": "200px"
+    },
+    {
+        "left": "600px",
+        "top": "350px"
+    },
+    {
+        "left": "150px",
+        "top": "200px"
+    }
+]);
+
+var tag_Name = [];
+tag_Name.push([
+    {
+        "left": "150px",
+        "text": "THÂN",
+        "marginLeft": "0px"
+    },
+    {
+        "left": "250px",
+        "text": "RỄ",
+        "marginLeft": "15px"
+    },
+    {
+        "left": "350px",
+        "text": "LÁ",
+        "marginLeft": "15px"
+    },
+    {
+        "left": "450px",
+        "text": "HOA",
+        "marginLeft": "7px"
+    },
+    {
+        "left": "550px",
+        "text": "QUẢ",
+        "marginLeft": "7px"
+    }
+]);

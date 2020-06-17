@@ -87,6 +87,9 @@ var lineContext = $("#line")[0].getContext("2d");
 function GotoLesson() {
     setTimeout(function(){
         $("#bodyMain").css({ "display": "block"});
+        addPartLesson(0);
+        addTagLocation(0);
+        addTagName(0)
         lineContext.lineWidth = 3;
         lineContext.beginPath();
         lineContext.strokeStyle = "yellow";
@@ -96,8 +99,7 @@ function GotoLesson() {
         drawLine(500, 165, 600, 165);
         drawLine(450, 280, 600, 320);
         drawLine(420, 450, 600, 470);
-    },500);
-    addTagName();
+    },1000);
     setTimeout(randomPart,2000);
 }
 function drawLine(x, y, x1, y1) {
@@ -105,39 +107,7 @@ function drawLine(x, y, x1, y1) {
     lineContext.lineTo(x1,y1);
     lineContext.stroke();
 }
-var tagName = 5;
-function addTagName() {
-    $(".box:eq(5)").mousedown(function(){
-        checkDrag(5);
-    });
-    $(".box:eq(6)").mousedown(function(){
-        checkDrag(6);
-    });
-    $(".box:eq(7)").mousedown(function(){
-        checkDrag(7);
-    });
-    $(".box:eq(8)").mousedown(function(){
-        checkDrag(8);
-    });
-    $(".box:eq(9)").mousedown(function(){
-        checkDrag(9);
-    });
-    $(".box:eq(5)").mouseup(function(){
-        checkDrop();
-    });
-    $(".box:eq(6)").mouseup(function(){
-        checkDrop();
-    });
-    $(".box:eq(7)").mouseup(function(){
-        checkDrop();
-    });
-    $(".box:eq(8)").mouseup(function(){
-        checkDrop();
-    });
-    $(".box:eq(9)").mouseup(function(){
-        checkDrop();
-    });
-}
+var tagName;
 var expressDragObject = false;
 var mainBig = $("#mainBig");
 var dragObject;
@@ -221,5 +191,62 @@ function effectPart() {
     for(var i = 0; i < 10 ; i++){
         $(".box:eq(" + idPart + ")").toggle(500);
         $("." + part[idPart]).toggle(500);
+    }
+}
+function addPartLesson(i){
+    var inputPartLesson =  JSON.parse(JSON.stringify(lesson[i]));
+    var idpartLesson = "partLesson" + (i+1);
+    var partLesson = document.createElement("div");
+    partLesson.setAttribute("id", idpartLesson);
+    $("#bodyMain").prepend(partLesson);
+    for(var id = 0; id < inputPartLesson.length; id++){
+        var Class = document.createElement("div");
+        Class.setAttribute("class",inputPartLesson[id].class);
+        $("#" + idpartLesson).append(Class);
+        $("." + inputPartLesson[id].class).css({
+            "width": "270px",
+            "height": "410px",
+            "background-image": ("url(" + inputPartLesson[id].image + ")"),
+            "left": "265px",
+            "top": "160px",
+            "position": "absolute",
+            "cursor": "pointer"
+        });
+    }
+}
+function addTagLocation(i){
+    var inputTagLocation = JSON.parse(JSON.stringify(tagLocation[i]));
+    var idTagLocation = "tagLocationLesson" + (i+1);
+    var tagLocationLesson = document.createElement("div");
+    tagLocationLesson.setAttribute("id", idTagLocation);
+    $("#letter").after(tagLocationLesson);
+    for(var id = 0; id < inputTagLocation.length; id++){
+        var Class = document.createElement("div");
+        Class.setAttribute("class","box");
+        $("#" + idTagLocation).append(Class);
+        $(".box:eq(" + id + ")").css({
+            "left": inputTagLocation[id].left,
+            "top": inputTagLocation[id].top,
+        });
+    }
+}
+function addTagName(i){
+    var inputTagName = JSON.parse(JSON.stringify(tag_Name[i]));
+    var idTagName = "tagLocationLesson" + (i+1);
+    var tagNameLesson = document.createElement("div");
+    tagNameLesson.setAttribute("id", idTagName);
+    $("#bodyMain").append(tagNameLesson);
+    for(var id = 0; id < inputTagName.length; id++){
+        var Class = document.createElement("div");
+        Class.setAttribute("class","box");
+        Class.setAttribute("onmousedown",("checkDrag(" + (id +inputTagName.length) + ")"));
+        Class.setAttribute("onmouseup","checkDrop()");
+        $("#" + idTagName).append(Class);
+        $(".box:eq(" + (id +inputTagName.length) + ")").css({"left": inputTagName[id].left});
+        var textClass = document.createElement("div");
+        textClass.setAttribute("class","textBox");
+        $(".box:eq(" + (id +inputTagName.length) + ")").append(textClass);
+        $(".textBox:eq(" + id + ")").text(inputTagName[id].text);
+        $(".textBox:eq(" + id + ")").css({"margin-left": inputTagName[id].marginLeft});
     }
 }
