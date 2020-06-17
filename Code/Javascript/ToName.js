@@ -85,17 +85,20 @@ function turnOffAudio(audio){
 }
 var lineContext = $("#line")[0].getContext("2d");
 function GotoLesson() {
-    $("#bodyMain").css({ "display": "block"});
-    lineContext.lineWidth = 3;
-    lineContext.beginPath();
-    lineContext.strokeStyle = "yellow";
-    lineContext.lineCap = "round";
-    drawLine(200, 165, 320, 190);
-    drawLine(200, 370, 400, 370);
-    drawLine(500, 165, 600, 165);
-    drawLine(450, 280, 600, 320);
-    drawLine(420, 450, 600, 470);
+    setTimeout(function(){
+        $("#bodyMain").css({ "display": "block"});
+        lineContext.lineWidth = 3;
+        lineContext.beginPath();
+        lineContext.strokeStyle = "yellow";
+        lineContext.lineCap = "round";
+        drawLine(200, 165, 320, 190);
+        drawLine(200, 370, 400, 370);
+        drawLine(500, 165, 600, 165);
+        drawLine(450, 280, 600, 320);
+        drawLine(420, 450, 600, 470);
+    },500);
     addTagName();
+    setTimeout(randomPart,2000);
 }
 function drawLine(x, y, x1, y1) {
     lineContext.moveTo(x,y);
@@ -135,7 +138,6 @@ function addTagName() {
         checkDrop();
     });
 }
-var isCorrect = false;
 var expressDragObject = false;
 var mainBig = $("#mainBig");
 var dragObject;
@@ -144,11 +146,13 @@ function checkDrag(i) {
     dragObject = $(".box:eq(" + tagName + ")");
     mainBig.mousemove(moveshape);
     dragObject.mousemove(moveshape);
-    expressDragObject = true;
+    if(!checkEffect){
+        expressDragObject = true;
+    }
 }
 function moveshape(e){
     e.preventDefault();
-    if(isCorrect || !expressDragObject) return;
+    if(checkPart[tagName-5] || !expressDragObject) return;
     var leftOfMainbig = mainBig.offset().left;
     var topOfMainbig = mainBig.offset().top;
     var limitLeft = leftOfMainbig +dragObject.outerWidth()/2;
@@ -165,6 +169,57 @@ function moveshape(e){
 }
 function checkDrop() {
     expressDragObject = false;
-    $(".box:eq(" + tagName + ")").css({"top" : "110px"});
-    $(".box:eq(" + tagName + ")").css({"left" : (150 + (tagName-5)*100) + "px"});
+    var tagNameLeft = dragObject.offset().left + 52;
+    var tagNameTop = dragObject.offset().top + dragObject.outerHeight();
+    var locationLeft = $(".box:eq(" + (tagName - 5) + ")").offset().left;
+    var locationTop = $(".box:eq(" + (tagName - 5) + ")").offset().top;
+    if(tagNameTop >= locationTop - 5 && tagNameTop <= locationTop + 60){
+        if(tagNameLeft >= locationLeft && tagNameLeft <= locationLeft + 120){
+            checkPart[idPart] = true;
+            scoreLesson[0] -= 1;
+            turnOnAudio(audioCorrect);
+            dragObject.css({"left" : (locationLeft - 55) + "px"});
+            dragObject.css({"top" : (locationTop - dragObject.outerHeight() + 15) + "px"});
+            if(scoreLesson[0] == 0){
+                pointsReward += pointsRewardLesson[0];
+                return;
+            }
+            setTimeout(randomPart,3000);
+            return;
+        }
+    }
+    pointsRewardLesson[0] -= 10;
+    turnOnAudio(audioWrong);
+    dragObject.css({"top" : "110px"});
+    dragObject.css({"left" : (150 + (tagName-5)*100) + "px"});
+}
+var part = ['trunk', 'root', 'leaf', 'flower', 'fruit'];
+var checkPart = [false, false, false, false, false];
+var idPart;
+var checkEffect = true;
+var pointsReward = 1000;
+var scoreLesson = [5];
+var pointsRewardLesson = [100];
+function randomPart() {
+    idPart = Math.floor(Math.random() * 5);
+    while(checkPart[idPart]){
+        idPart = Math.floor(Math.random() * 5);
+    }
+    $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "rgb(0, 255, 255)"});
+    $(".box:eq(" + (idPart + 5) + ")").hover(function(){
+        $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "white"});
+    },function(){
+        $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "rgb(0, 255, 255)"});
+    });
+    checkEffect = true;
+    effectPart();
+    setTimeout(function(){
+        checkEffect = false;
+    },5000);
+}
+function effectPart() {
+    for(var i = 0; i < 10 ; i++){
+        $(".box:eq(" + idPart + ")").toggle(500);
+        $("." + part[idPart]).toggle(500);
+    }
 }

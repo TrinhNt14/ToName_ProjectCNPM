@@ -237,7 +237,7 @@ body {
     cursor: pointer;
 }
 .box:hover {
-    background-color: rgb(0, 225, 255);
+    background-color: rgb(0, 132, 255);
 }
 .textBox {
     position: absolute;
