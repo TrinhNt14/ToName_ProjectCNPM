@@ -128,3 +128,10 @@ line.push([
         "y1" : "470"
     }
 ]);
+var question = [];
+question.push({
+    "text": [
+        "Đặt thẻ tên các bộ phận của cây vào vị trí phù hợp trên hình.",
+        "Place the name tags of the tree parts in the appropriate positions on the picture."
+    ]
+})

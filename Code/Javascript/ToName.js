@@ -1,5 +1,16 @@
 $(".start").click(function(){
-    $("#menuStart").css({"display" : "none"});
+    $("#menuStart").hide(500);
+    $("#bodyMain").show(500);
+    GotoLesson();
+});
+$("#next").click(nextLesson);
+$(".restart").click(function(){
+    $("#menuCompleted").hide(500);
+    $("#partLesson" + Lesson).remove();
+    $("#tagLocationLesson" + Lesson).remove();
+    $("#tagNameLesson" + Lesson).remove();
+    $("#letter").hide();
+    lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     GotoLesson();
 });
 $("#chooseLanguage").click(function(){
@@ -7,7 +18,7 @@ $("#chooseLanguage").click(function(){
 });
 $(".Language:eq(0)").click(function(){
     language = "en";
-    $("#letter").text('Place the name tags of the tree parts in the appropriate positions on the picture.');
+    $("#letter").text(inputQuestion.text[1]);
     $("#letter").css({"font-size" : "20px"});
     $(".backText").text('BACK');
     $(".textStart").text('START');
@@ -22,12 +33,18 @@ $(".Language:eq(0)").click(function(){
     }
     $("#mainLanguage").text('ENGLISH');
     $("#mainLanguage").css({"margin-left": "25px"});
-    $("#languageDialog").css({"display" : "none"});
+    $("#languageDialog").hide();
+    $(".textCompleted:eq(1)").text("COMPLETED");
+    $(".textCompleted:eq(1)").css({"margin-left": "50px"});
+    $(".textNext").text("NEXT");
+    $(".textNext").css({"font-size": "35px", "margin-top": "12px"});
+    $(".textCompleted:eq(0)").text("LEVEL " + Lesson);
+    $(".textCompleted:eq(0)").css({"margin-left": "80px"});
     languageTagName();
 });
 $(".Language:eq(1)").click(function(){
     language = "vi";
-    $("#letter").text('Đặt thẻ tên các bộ phận của cây vào vị trí phù hợp trên hình.');
+    $("#letter").text(inputQuestion.text[0]);
     $("#letter").css({"font-size" : "25px"});
     $(".backText").text('TRỞ VỀ');
     $(".textStart").text('BẮT ĐẦU');
@@ -42,7 +59,13 @@ $(".Language:eq(1)").click(function(){
     }
     $("#mainLanguage").text('TIẾNG VIỆT');
     $("#mainLanguage").css({"margin-left": "0px"});
-    $("#languageDialog").css({"display" : "none"});
+    $("#languageDialog").hide();
+    $(".textCompleted:eq(1)").text("HOÀN THÀNH");
+    $(".textCompleted:eq(1)").css({"margin-left": "40px"});
+    $(".textNext").text("TIẾP THEO");
+    $(".textNext").css({"font-size": "22px", "margin-top": "20px"});
+    $(".textCompleted:eq(0)").text("CẤP ĐỘ " + Lesson);
+    $(".textCompleted:eq(0)").css({"margin-left": "70px"});
     languageTagName();
 });
 function languageTagName() {
@@ -120,29 +143,37 @@ function turnOffAudio(audio){
 }
 function GotoLesson() {
     setTimeout(function(){
-        $("#bodyMain").css({ "display": "block"});
+        pointsRewardLesson[Lesson] = 100;
         addPartLesson(Lesson);
         addTagLocation(Lesson);
         addTagName(Lesson);
+        addQuestion(Lesson);
         addLine(Lesson);
     },1000);
     setTimeout(randomPart,2000);
 }
 function nextLesson(){
+    turnOffAudio(audioCompleted);
+    pointsReward += pointsRewardLesson[Lesson-1];
     Lesson += 1;
     if(Lesson > lessonNumber){
-        GotoCompleted();
+        GotoCongratulate();
         return;
     }
     $("#partLesson" + Lesson).remove();
     $("#tagLocationLesson" + Lesson).remove();
     $("#tagNameLesson" + Lesson).remove();
-    addPartLesson(Lesson);
-    addTagLocation(Lesson);
-    addTagName(Lesson);
-    addLine(Lesson);
+    lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
+    GotoLesson();
 }
 function GotoCompleted(){
+    $("#menuCompleted").show(500);
+    if(sound == "on"){
+        turnOnAudio(audioCompleted);
+    }
+    $(".textPointsRewardlesson").text(pointsRewardLesson[Lesson-1]);
+}
+function GotoCongratulate(){
     alert(10);
 }
 function drawLine(x, y, x1, y1) {
@@ -191,23 +222,27 @@ function checkDrop() {
             if(sound == "on"){
                 turnOnAudio(audioCorrect);
             }
-            dragObject.css({"left" : (locationLeft - 283) + "px"});
+            dragObject.css({"left" : (locationLeft - 274) + "px"});
             dragObject.css({"top" : (locationTop - dragObject.outerHeight() + 15) + "px"});
+            dragObject.animate({left: (locationLeft - 270) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 274) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 270) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
+            dragObject.animate({left: (locationLeft - 270) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 274) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
             if(scoreLesson == 0){
-                pointsReward += pointsRewardLesson[0];
-                nextLesson();
+                setTimeout(GotoCompleted,3000);
                 return;
             }
-            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
-            dragObject.animate({left: (locationLeft - 283) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
-            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
-            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
-            dragObject.animate({left: (locationLeft - 283) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
             setTimeout(randomPart,3000);
             return;
         }
     }
-    pointsRewardLesson[0] -= 10;
+    if(pointsRewardLesson[Lesson-1] >= 10){
+        pointsRewardLesson[Lesson-1] -= 10;
+    }
+    else{
+        pointsRewardLesson[Lesson-1] = 0;
+    }
     if(sound == "on"){
         turnOnAudio(audioWrong);
     }
@@ -241,6 +276,18 @@ function randomPart() {
     });
     effectPart();
     setTimeout(function(){
+        if(language == "vi"){
+            $(".box:eq(" + idPart + ")").animate({
+                width: "60px",
+                height: "30px",
+            },100);
+        }
+        else{
+            $(".box:eq(" + idPart + ")").animate({
+                width: "80px",
+                height: "30px",
+            },100);
+        }
         checkEffect[idPart] = true;
     },5000);
 
@@ -315,7 +362,6 @@ function addTagName(i){
     languageTagName();
 }
 function addLine(i){
-    lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     $("#line").width = "800px";
     $("#line").height = "555px";
     inputLine = JSON.parse(JSON.stringify(line[i-1]));
@@ -326,4 +372,14 @@ function addLine(i){
     for(var id = 0; id < partNumber; id++){
         drawLine(inputLine[id].x, inputLine[id].y, inputLine[id].x1, inputLine[id].y1);
     }
+}
+function addQuestion(i){
+    inputQuestion = JSON.parse(JSON.stringify(question[i-1]));
+    if(language == "vi") {
+        $("#letter").text(inputQuestion.text[0]);
+    }
+    else{
+        $("#letter").text(inputQuestion.text[1]);
+    }
+    $("#letter").show();
 }
