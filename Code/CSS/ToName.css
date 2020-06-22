@@ -164,7 +164,6 @@ body {
     background-color: transparent;
     position: absolute;
     cursor: pointer;
-    /* display: none; */
 }   
 #question:hover {
     filter: contrast(150%);
@@ -179,52 +178,6 @@ body {
     left: 75px;
     top: 70px;
     color: red;
-    cursor: pointer;
-    /* display: none; */
-}
-.root {
-    width: 270px;
-    height: 410px;
-    background-image: url("../Image/Lesson_1/Root.png");
-    left: 265px;
-    top: 160px;
-    position: absolute;
-    cursor: pointer;
-}
-.trunk {
-    width: 270px;
-    height: 410px;
-    background-image: url("../Image/Lesson_1/Trunk.png");
-    left: 265px;
-    top: 160px;
-    position: absolute;
-    cursor: pointer;
-}
-.leaf {
-    width: 270px;
-    height: 410px;
-    background-image: url("../Image/Lesson_1/Leaf.png");
-    left: 265px;
-    top: 160px;
-    position: absolute;
-    cursor: pointer;
-}
-.flower {
-    width: 270px;
-    height: 410px;
-    background-image: url("../Image/Lesson_1/Flower.png");
-    left: 265px;
-    top: 160px;
-    position: absolute;
-    cursor: pointer;
-}
-.fruit {
-    width: 270px;
-    height: 410px;
-    background-image: url("../Image/Lesson_1/Fruit.png");
-    left: 265px;
-    top: 160px;
-    position: absolute;
     cursor: pointer;
 }
 .box {

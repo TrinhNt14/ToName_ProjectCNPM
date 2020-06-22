@@ -1,5 +1,3 @@
-var language = "vi";
-var sound = "off";
 $(".start").click(function(){
     $("#menuStart").css({"display" : "none"});
     GotoLesson();
@@ -9,6 +7,8 @@ $("#chooseLanguage").click(function(){
 });
 $(".Language:eq(0)").click(function(){
     language = "en";
+    $("#letter").text('Place the name tags of the tree parts in the appropriate positions on the picture.');
+    $("#letter").css({"font-size" : "20px"});
     $(".backText").text('BACK');
     $(".textStart").text('START');
     $(".textStart").css({"margin-left": "50px"});
@@ -23,9 +23,12 @@ $(".Language:eq(0)").click(function(){
     $("#mainLanguage").text('ENGLISH');
     $("#mainLanguage").css({"margin-left": "25px"});
     $("#languageDialog").css({"display" : "none"});
+    languageTagName();
 });
 $(".Language:eq(1)").click(function(){
     language = "vi";
+    $("#letter").text('Đặt thẻ tên các bộ phận của cây vào vị trí phù hợp trên hình.');
+    $("#letter").css({"font-size" : "25px"});
     $(".backText").text('TRỞ VỀ');
     $(".textStart").text('BẮT ĐẦU');
     $(".textStart").css({"margin-left": "35px"});
@@ -40,7 +43,42 @@ $(".Language:eq(1)").click(function(){
     $("#mainLanguage").text('TIẾNG VIỆT');
     $("#mainLanguage").css({"margin-left": "0px"});
     $("#languageDialog").css({"display" : "none"});
+    languageTagName();
 });
+function languageTagName() {
+    var textTagName = 1;
+    if(language == "vi"){
+        textTagName = 0;
+    }
+    else{
+        textTagName = 1;
+    }
+    for(var i = 0; i < partNumber; i++){
+        $(".textBox:eq(" + i + ")").text(inputTagName[i].text[textTagName]);
+        if(textTagName == 1){
+            $(".box:eq(" + (i + partNumber) + ")").css({
+                "width": "80px",
+                "height": "30px",
+            });
+            $(".box:eq(" + i + ")").css({
+                "width": "80px",
+                "height": "30px",
+            });
+            $(".textBox:eq(" + i + ")").css({"font-size" : "15px"});
+        }
+        else{
+            $(".box:eq(" + i + ")").css({
+                "width": "60px",
+                "height": "30px",
+            });
+            $(".box:eq(" + (i + partNumber) + ")").css({
+                "width": "60px",
+                "height": "30px",
+            });
+            $(".textBox:eq(" + i + ")").css({"font-size" : "20px"});
+        }
+    }
+}
 $(".turnSound").click(function(){
     if(sound == "off") {
         turnOnSound();
@@ -73,56 +111,55 @@ function turnOffSound() {
     $(".textSound:eq(1)").css({"margin-left": "100px"});
     $(".turnSound").css({"background-image": "url(../Image/offSound.png)"});
 }
-var audioTheme = 0;
-var audioWrong = 1;
-var audioCorrect = 2;
-var audioCompleted = 3;
 function turnOnAudio(audio) {
     $("audio")[audio].play();   
+    $("audio")[audio].currentTime = 0;
 }
 function turnOffAudio(audio){
     $("audio")[audio].pause();
 }
-var lineContext = $("#line")[0].getContext("2d");
 function GotoLesson() {
     setTimeout(function(){
         $("#bodyMain").css({ "display": "block"});
-        addPartLesson(0);
-        addTagLocation(0);
-        addTagName(0)
-        lineContext.lineWidth = 3;
-        lineContext.beginPath();
-        lineContext.strokeStyle = "yellow";
-        lineContext.lineCap = "round";
-        drawLine(200, 165, 320, 190);
-        drawLine(200, 370, 400, 370);
-        drawLine(500, 165, 600, 165);
-        drawLine(450, 280, 600, 320);
-        drawLine(420, 450, 600, 470);
+        addPartLesson(Lesson);
+        addTagLocation(Lesson);
+        addTagName(Lesson);
+        addLine(Lesson);
     },1000);
     setTimeout(randomPart,2000);
+}
+function nextLesson(){
+    Lesson += 1;
+    if(Lesson == lessonNumber){
+        GotoCompleted();
+        return;
+    }
+    addPartLesson(Lesson);
+    addTagLocation(Lesson);
+    addTagName(Lesson);
+    addLine(Lesson);
+}
+function GotoCompleted(){
+    alert(10);
 }
 function drawLine(x, y, x1, y1) {
     lineContext.moveTo(x,y);
     lineContext.lineTo(x1,y1);
     lineContext.stroke();
 }
-var tagName;
-var expressDragObject = false;
-var mainBig = $("#mainBig");
-var dragObject;
 function checkDrag(i) {
     tagName = i;
+    if(checkPart[tagName-5]) return;
     dragObject = $(".box:eq(" + tagName + ")");
     mainBig.mousemove(moveshape);
     dragObject.mousemove(moveshape);
-    if(!checkEffect){
+    if(checkEffect[tagName-5]){
         expressDragObject = true;
     }
 }
 function moveshape(e){
     e.preventDefault();
-    if(checkPart[tagName-5] || !expressDragObject) return;
+    if(!expressDragObject) return;
     var leftOfMainbig = mainBig.offset().left;
     var topOfMainbig = mainBig.offset().top;
     var limitLeft = leftOfMainbig +dragObject.outerWidth()/2;
@@ -146,12 +183,15 @@ function checkDrop() {
     if(tagNameTop >= locationTop - 5 && tagNameTop <= locationTop + 60){
         if(tagNameLeft >= locationLeft && tagNameLeft <= locationLeft + 120){
             checkPart[idPart] = true;
-            scoreLesson[0] -= 1;
+            checkEffect[idPart] = false;
+            // scoreLesson -= 1;
+            scoreLesson = 0;
             turnOnAudio(audioCorrect);
-            dragObject.css({"left" : (locationLeft - 55) + "px"});
+            dragObject.css({"left" : (locationLeft - 283) + "px"});
             dragObject.css({"top" : (locationTop - dragObject.outerHeight() + 15) + "px"});
-            if(scoreLesson[0] == 0){
+            if(scoreLesson == 0){
                 pointsReward += pointsRewardLesson[0];
+                nextLesson();
                 return;
             }
             setTimeout(randomPart,3000);
@@ -159,21 +199,14 @@ function checkDrop() {
         }
     }
     pointsRewardLesson[0] -= 10;
-    turnOnAudio(audioWrong);
+    setTimeout(turnOnAudio(audioWrong),3000);
     dragObject.css({"top" : "110px"});
     dragObject.css({"left" : (150 + (tagName-5)*100) + "px"});
 }
-var part = ['trunk', 'root', 'leaf', 'flower', 'fruit'];
-var checkPart = [false, false, false, false, false];
-var idPart;
-var checkEffect = true;
-var pointsReward = 1000;
-var scoreLesson = [5];
-var pointsRewardLesson = [100];
 function randomPart() {
-    idPart = Math.floor(Math.random() * 5);
+    idPart = Math.floor(Math.random() * partNumber);
     while(checkPart[idPart]){
-        idPart = Math.floor(Math.random() * 5);
+        idPart = Math.floor(Math.random() * partNumber);
     }
     $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "rgb(0, 255, 255)"});
     $(".box:eq(" + (idPart + 5) + ")").hover(function(){
@@ -181,25 +214,26 @@ function randomPart() {
     },function(){
         $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "rgb(0, 255, 255)"});
     });
-    checkEffect = true;
     effectPart();
     setTimeout(function(){
-        checkEffect = false;
+        checkEffect[idPart] = true;
     },5000);
+
 }
 function effectPart() {
-    for(var i = 0; i < 10 ; i++){
+    for(var i = 0; i < loopEffectNumber ; i++){
         $(".box:eq(" + idPart + ")").toggle(500);
         $("." + part[idPart]).toggle(500);
     }
 }
 function addPartLesson(i){
-    var inputPartLesson =  JSON.parse(JSON.stringify(lesson[i]));
+    inputPartLesson =  JSON.parse(JSON.stringify(lesson[i]));
+    partNumber = inputPartLesson.length;
     var idpartLesson = "partLesson" + (i+1);
     var partLesson = document.createElement("div");
     partLesson.setAttribute("id", idpartLesson);
     $("#bodyMain").prepend(partLesson);
-    for(var id = 0; id < inputPartLesson.length; id++){
+    for(var id = 0; id < partNumber; id++){
         var Class = document.createElement("div");
         Class.setAttribute("class",inputPartLesson[id].class);
         $("#" + idpartLesson).append(Class);
@@ -212,15 +246,16 @@ function addPartLesson(i){
             "position": "absolute",
             "cursor": "pointer"
         });
+        part.push(inputPartLesson[id].class);
     }
 }
 function addTagLocation(i){
-    var inputTagLocation = JSON.parse(JSON.stringify(tagLocation[i]));
+    inputTagLocation = JSON.parse(JSON.stringify(tagLocation[i]));
     var idTagLocation = "tagLocationLesson" + (i+1);
     var tagLocationLesson = document.createElement("div");
     tagLocationLesson.setAttribute("id", idTagLocation);
     $("#letter").after(tagLocationLesson);
-    for(var id = 0; id < inputTagLocation.length; id++){
+    for(var id = 0; id < partNumber; id++){
         var Class = document.createElement("div");
         Class.setAttribute("class","box");
         $("#" + idTagLocation).append(Class);
@@ -231,22 +266,36 @@ function addTagLocation(i){
     }
 }
 function addTagName(i){
-    var inputTagName = JSON.parse(JSON.stringify(tag_Name[i]));
+    inputTagName = JSON.parse(JSON.stringify(tag_Name[i]));
     var idTagName = "tagLocationLesson" + (i+1);
     var tagNameLesson = document.createElement("div");
     tagNameLesson.setAttribute("id", idTagName);
     $("#bodyMain").append(tagNameLesson);
-    for(var id = 0; id < inputTagName.length; id++){
+    for(var id = 0; id < partNumber; id++){
         var Class = document.createElement("div");
         Class.setAttribute("class","box");
-        Class.setAttribute("onmousedown",("checkDrag(" + (id +inputTagName.length) + ")"));
+        Class.setAttribute("onmousedown",("checkDrag("+ (id + partNumber) + ")"));
         Class.setAttribute("onmouseup","checkDrop()");
         $("#" + idTagName).append(Class);
-        $(".box:eq(" + (id +inputTagName.length) + ")").css({"left": inputTagName[id].left});
+        $(".box:eq(" + (id +partNumber) + ")").css({"left": inputTagName[id].left});
         var textClass = document.createElement("div");
         textClass.setAttribute("class","textBox");
-        $(".box:eq(" + (id +inputTagName.length) + ")").append(textClass);
-        $(".textBox:eq(" + id + ")").text(inputTagName[id].text);
+        $(".box:eq(" + (id +partNumber) + ")").append(textClass);
+        $(".textBox:eq(" + id + ")").text(inputTagName[id].text[0]);
         $(".textBox:eq(" + id + ")").css({"margin-left": inputTagName[id].marginLeft});
+    }
+    languageTagName();
+}
+function addLine(i){
+    lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
+    $("#line").width = "800px";
+    $("#line").height = "555px";
+    inputLine = JSON.parse(JSON.stringify(line[i]));
+    lineContext.lineWidth = 3;
+    lineContext.beginPath();
+    lineContext.strokeStyle = "yellow";
+    lineContext.lineCap = "round";
+    for(var id = 0; id < partNumber; id++){
+        drawLine(inputLine[id].x, inputLine[id].y, inputLine[id].x1, inputLine[id].y1);
     }
 }
