@@ -130,10 +130,13 @@ function GotoLesson() {
 }
 function nextLesson(){
     Lesson += 1;
-    if(Lesson == lessonNumber){
+    if(Lesson > lessonNumber){
         GotoCompleted();
         return;
     }
+    $("#partLesson" + Lesson).remove();
+    $("#tagLocationLesson" + Lesson).remove();
+    $("#tagNameLesson" + Lesson).remove();
     addPartLesson(Lesson);
     addTagLocation(Lesson);
     addTagName(Lesson);
@@ -178,15 +181,16 @@ function checkDrop() {
     expressDragObject = false;
     var tagNameLeft = dragObject.offset().left + 52;
     var tagNameTop = dragObject.offset().top + dragObject.outerHeight();
-    var locationLeft = $(".box:eq(" + (tagName - 5) + ")").offset().left;
-    var locationTop = $(".box:eq(" + (tagName - 5) + ")").offset().top;
+    var locationLeft = $(".box:eq(" + (tagName - partNumber) + ")").offset().left;
+    var locationTop = $(".box:eq(" + (tagName - partNumber) + ")").offset().top;
     if(tagNameTop >= locationTop - 5 && tagNameTop <= locationTop + 60){
         if(tagNameLeft >= locationLeft && tagNameLeft <= locationLeft + 120){
             checkPart[idPart] = true;
             checkEffect[idPart] = false;
-            // scoreLesson -= 1;
-            scoreLesson = 0;
-            turnOnAudio(audioCorrect);
+            scoreLesson -= 1;
+            if(sound == "on"){
+                turnOnAudio(audioCorrect);
+            }
             dragObject.css({"left" : (locationLeft - 283) + "px"});
             dragObject.css({"top" : (locationTop - dragObject.outerHeight() + 15) + "px"});
             if(scoreLesson == 0){
@@ -194,25 +198,46 @@ function checkDrop() {
                 nextLesson();
                 return;
             }
+            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 283) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
+            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 283) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
             setTimeout(randomPart,3000);
             return;
         }
     }
     pointsRewardLesson[0] -= 10;
-    setTimeout(turnOnAudio(audioWrong),3000);
+    if(sound == "on"){
+        turnOnAudio(audioWrong);
+    }
+    for(var i = 0; i < partNumber; i++){
+        if(i == tagName - 5) continue;
+        var locationWrongTop = $(".box:eq(" + i + ")").offset().top;
+        var locationWrongLeft = $(".box:eq(" + i + ")").offset().left;
+        if(tagNameTop >= locationWrongTop - 5 && tagNameTop <= locationWrongTop + 60){
+            if(tagNameLeft >= locationWrongLeft && tagNameLeft <= locationWrongLeft + 120){
+                $(".box:eq(" + i + ")").css({"background-color": "red"});
+                setTimeout(function(){
+                    $(".box:eq(" + i + ")").css({"background-color": "white"});
+                },1000);
+                break;
+            }
+        }
+    }
     dragObject.css({"top" : "110px"});
-    dragObject.css({"left" : (150 + (tagName-5)*100) + "px"});
+    dragObject.css({"left" : (150 + (tagName-partNumber)*100) + "px"});
 }
 function randomPart() {
     idPart = Math.floor(Math.random() * partNumber);
     while(checkPart[idPart]){
         idPart = Math.floor(Math.random() * partNumber);
     }
-    $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "rgb(0, 255, 255)"});
-    $(".box:eq(" + (idPart + 5) + ")").hover(function(){
-        $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "white"});
+    $(".box:eq(" + (idPart + partNumber) + ")").css({"background-color": "rgb(0, 255, 255)"});
+    $(".box:eq(" + (idPart + partNumber) + ")").hover(function(){
+        $(".box:eq(" + (idPart + partNumber) + ")").css({"background-color": "white"});
     },function(){
-        $(".box:eq(" + (idPart + 5) + ")").css({"background-color": "rgb(0, 255, 255)"});
+        $(".box:eq(" + (idPart + partNumber) + ")").css({"background-color": "rgb(0, 255, 255)"});
     });
     effectPart();
     setTimeout(function(){
@@ -227,9 +252,10 @@ function effectPart() {
     }
 }
 function addPartLesson(i){
-    inputPartLesson =  JSON.parse(JSON.stringify(lesson[i]));
+    inputPartLesson =  JSON.parse(JSON.stringify(lesson[i-1]));
     partNumber = inputPartLesson.length;
-    var idpartLesson = "partLesson" + (i+1);
+    scoreLesson = partNumber;
+    var idpartLesson = "partLesson" + i;
     var partLesson = document.createElement("div");
     partLesson.setAttribute("id", idpartLesson);
     $("#bodyMain").prepend(partLesson);
@@ -247,11 +273,13 @@ function addPartLesson(i){
             "cursor": "pointer"
         });
         part.push(inputPartLesson[id].class);
+        checkPart.push(false);
+        checkEffect.push(false);
     }
 }
 function addTagLocation(i){
-    inputTagLocation = JSON.parse(JSON.stringify(tagLocation[i]));
-    var idTagLocation = "tagLocationLesson" + (i+1);
+    inputTagLocation = JSON.parse(JSON.stringify(tagLocation[i-1]));
+    var idTagLocation = "tagLocationLesson" + i;
     var tagLocationLesson = document.createElement("div");
     tagLocationLesson.setAttribute("id", idTagLocation);
     $("#letter").after(tagLocationLesson);
@@ -266,8 +294,8 @@ function addTagLocation(i){
     }
 }
 function addTagName(i){
-    inputTagName = JSON.parse(JSON.stringify(tag_Name[i]));
-    var idTagName = "tagLocationLesson" + (i+1);
+    inputTagName = JSON.parse(JSON.stringify(tag_Name[i-1]));
+    var idTagName = "tagNameLesson" + i;
     var tagNameLesson = document.createElement("div");
     tagNameLesson.setAttribute("id", idTagName);
     $("#bodyMain").append(tagNameLesson);
@@ -290,7 +318,7 @@ function addLine(i){
     lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     $("#line").width = "800px";
     $("#line").height = "555px";
-    inputLine = JSON.parse(JSON.stringify(line[i]));
+    inputLine = JSON.parse(JSON.stringify(line[i-1]));
     lineContext.lineWidth = 3;
     lineContext.beginPath();
     lineContext.strokeStyle = "yellow";
