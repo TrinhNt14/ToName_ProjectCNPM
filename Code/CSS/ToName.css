@@ -6,7 +6,6 @@ body {
 }
 #mainBig {
     position: absolute;
-    float: left;
     background-image: url("../Image/Main_background.png");
     width: 800px;
     height: 600px;
@@ -217,7 +216,7 @@ body {
 }
 #completed {
     position: absolute;
-    background-image: url("../Image/complete.png");
+    background-image: url("../Image/Completed/complete.png");
     height: 270px;
     width: 260px;
     left: 270px;
@@ -234,7 +233,7 @@ body {
 }
 .smallStar {
     position: absolute;
-    background-image: url("../Image/smallStar.png");
+    background-image: url("../Image/Completed/smallStar.png");
     height: 65px;
     width: 65px;
     left: 22px;
@@ -244,7 +243,7 @@ body {
 }
 .bigStar {
     position: absolute;
-    background-image: url("../Image/bigStar.png");
+    background-image: url("../Image/Completed/bigStar.png");
     height: 85px;
     width: 85px;
     left: 92px;
@@ -254,7 +253,7 @@ body {
 }
 #next {
     position: absolute;
-    background-image: url("../Image/next.png");
+    background-image: url("../Image/Completed/next.png");
     height: 76px;
     width: 130px;
     left: 340px;
@@ -274,7 +273,7 @@ body {
 }
 #pointsRewardLesson {
     position: absolute;
-    background-image: url("../Image/bigScore.png");
+    background-image: url("../Image/Completed/bigScore.png");
     height: 56px;
     width: 150px;
     left: 330px;
@@ -291,7 +290,7 @@ body {
 }
 .restart {
     position: absolute;
-    background-image: url("../Image/Restart.png");
+    background-image: url("../Image/Completed/Restart.png");
     height: 50px;
     width: 60px;
     left: 530px;
@@ -367,4 +366,67 @@ body {
     margin-left: 32px;
     margin-top: 15px;
     color: yellow;
+}
+#congratulation{
+    display: none;
+    position: absolute;
+    background-image: url("../Image/Completed/congratulations.png");
+    width: 800px;
+    height: 600px;
+    margin-left: calc(50% - 400px); 
+    margin-top: -45px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+}
+#lessonCompleted{
+    position: absolute;
+    background-image: url("../Image/Completed/lesson_completed.png");
+    width: 550px;
+    height: 250px;
+    margin-left: 150px; 
+    margin-top: 300px;
+}
+.textLessonCompleted{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 40px;
+    margin-left: 150px;
+    margin-top: 20px;
+    color: white;
+}
+#score{
+    position: absolute;
+    background-image: url("../Image/Completed/bigScore.png");
+    width: 150px;
+    height: 56px;
+    margin-left: 200px; 
+    margin-top: 70px;
+}
+.textScore{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 30px;
+    margin-left: 70px;
+    margin-top: 10px;
+    color: yellow;
+}
+#gotoLesson{
+    position: absolute;
+    background-image: url("../Image/Completed/Gotolesson.png");
+    width: 200px;
+    height: 100px;
+    margin-left: 180px; 
+    margin-top: 150px;
+}
+#gotoLesson:hover{
+    filter: contrast(150%);
+}
+.textGotoLesson{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 30px;
+    color: red;
+    cursor: pointer;
 }

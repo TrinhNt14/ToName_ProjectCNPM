@@ -4,6 +4,7 @@ var audioTheme = 0;
 var audioWrong = 1;
 var audioCorrect = 2;
 var audioCompleted = 3;
+var audioCongratulation = 4;
 var tagName;
 var expressDragObject = false;
 var mainBig = $("#mainBig");

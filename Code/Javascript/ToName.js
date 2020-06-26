@@ -13,6 +13,9 @@ $(".restart").click(function(){
     lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     GotoLesson();
 });
+$("#gotoLesson").click(function(){
+     window.location = "../HTML/ToName.html";
+});
 $("#chooseLanguage").click(function(){
     $("#languageDialog").slideToggle();
 });
@@ -181,7 +184,7 @@ function nextLesson(){
     $(".textPointsReward").text(pointsReward);
     Lesson += 1;
     if(Lesson > lessonNumber){
-        GotoCongratulate();
+        GotoCongratulation();
         return;
     }
     $("#partLesson" + Lesson).remove();
@@ -210,8 +213,13 @@ function GotoCompleted(){
         $(".bigStar").show(3000);
     }
 }
-function GotoCongratulate(){
-    alert($(".textPointsReward").text());
+function GotoCongratulation(){
+    if(sound == "on"){
+        turnOffAudio(audioTheme);
+        turnOnAudio(audioCongratulation);
+    }
+    $(".textScore").text(pointsReward);
+    $("#congratulation").show(1000);
 }
 function drawLine(x, y, x1, y1) {
     lineContext.moveTo(x,y);
