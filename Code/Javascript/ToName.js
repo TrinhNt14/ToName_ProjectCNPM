@@ -4,6 +4,13 @@ $(".start").click(function(){
     GotoLesson();
 });
 $("#next").click(nextLesson);
+$(".creation").click(function(){
+    if(scoreLesson>0){
+        effectPart();
+        pointsReward -= 100;
+        $(".textPointsReward").text(pointsReward);
+    }
+});
 $(".restart").click(function(){
     $("#menuCompleted").hide(500);
     $("#partLesson" + Lesson).remove();
@@ -12,6 +19,11 @@ $(".restart").click(function(){
     $("#letter").hide();
     lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     GotoLesson();
+});
+$("#question").click(function(){
+    if(sound=="on"){
+        turnOnAudio(audioQuestion);
+    }
 });
 $("#gotoLesson").click(function(){
      window.location = "../HTML/ToName.html";
@@ -22,6 +34,7 @@ $("#chooseLanguage").click(function(){
 $(".Language:eq(0)").click(function(){
     language = "en";
     $("#letter").text(inputQuestion.text[1]);
+    $("#audioQuestion").attr("src",inputQuestion.audio[1]);
     $("#letter").css({"font-size" : "20px"});
     $(".backText").text('BACK');
     $(".textStart").text('START');
@@ -49,6 +62,7 @@ $(".Language:eq(0)").click(function(){
 $(".Language:eq(1)").click(function(){
     language = "vi";
     $("#letter").text(inputQuestion.text[0]);
+    $("#audioQuestion").attr("src",inputQuestion.audio[0]);
     $("#letter").css({"font-size" : "25px"});
     $(".backText").text('TRỞ VỀ');
     $(".textStart").text('BẮT ĐẦU');
@@ -427,9 +441,11 @@ function addQuestion(i){
     inputQuestion = JSON.parse(JSON.stringify(question[i-1]));
     if(language == "vi") {
         $("#letter").text(inputQuestion.text[0]);
+        $("#audioQuestion").attr("src",inputQuestion.audio[0]);
     }
     else{
         $("#letter").text(inputQuestion.text[1]);
+        $("#audioQuestion").attr("src",inputQuestion.audio[1]);
     }
     $("#letter").show();
 }
