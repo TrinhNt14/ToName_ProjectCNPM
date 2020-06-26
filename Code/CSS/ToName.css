@@ -302,10 +302,22 @@ body {
 }
 .buttonSound{
     position: absolute;
-    background-image: url("../Image/btn_offSound.png");
-    height: 26px;
+    background-image: url("../Image/mute.png");
+    height: 32px;
     width: 32px;
     left: 450px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttonSound:hover{
+    filter: contrast(150%);
+}
+.buttonMusic{
+    position: absolute;
+    background-image: url("../Image/btn_onSound.png");
+    height: 26px;
+    width: 32px;
+    left: 400px;
     top: 10px;
     cursor: pointer;
 }
@@ -345,7 +357,7 @@ body {
     position: absolute;
     font-family: 'Algerian';
     font-size: 22px;
-    left: 200px;
+    left: 170px;
     top: 15px;
     color: yellow;
 }
@@ -354,7 +366,7 @@ body {
     background-image: url("../Image/reward.png");
     height: 40px;
     width: 64px;
-    left: 320px;
+    left: 290px;
     top: 5px;
     cursor: pointer;
     background-position: 0px -24px;

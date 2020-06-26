@@ -1,5 +1,6 @@
 var language = "vi";
 var sound = "off";
+var music = "on";
 var audioTheme = 0;
 var audioWrong = 1;
 var audioCorrect = 2;
@@ -27,6 +28,6 @@ var loopEffectNumber = 10;
 var Lesson = 1;
 var lessonNumber = JSON.parse(JSON.stringify(lesson)).length;
 for(var i=0; i<lessonNumber; i++){
-    pointsRewardLesson.push(100*Lesson);
+    pointsRewardLesson.push(100*(i+1));
 }
 var lineContext = $("#line")[0].getContext("2d");

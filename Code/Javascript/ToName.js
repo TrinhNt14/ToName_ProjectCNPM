@@ -18,6 +18,7 @@ $(".restart").click(function(){
     $("#tagNameLesson" + Lesson).remove();
     $("#letter").hide();
     lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
+    pointsRewardLesson[Lesson-1] = 100*Lesson;
     GotoLesson();
 });
 $("#question").click(function(){
@@ -129,24 +130,43 @@ $(".turnSound").click(function(){
         turnOffSound();
     }
 });
-$(".buttonSound").click(function(){
-    if(sound == "off") {
-        turnOnAudio(audioTheme);
-        $(".buttonSound").css({"background-image": "url(../Image/btn_onSound.png)"});
-        sound = "on";
+$(".buttonMusic").click(function(){
+    if(music == "off"){
+        $(".buttonMusic").css({"background-image": "url(../Image/btn_onSound.png)"});
+        music = "on";
     }
     else {
         turnOffAudio(audioTheme);
+        $(".buttonMusic").css({"background-image": "url(../Image/btn_offSound.png)"});
+        music = "off";
+    }
+    if(sound == "on" && music == "on"){
+        turnOnAudio(audioTheme);
+    }
+});
+$(".buttonSound").click(function(){
+    if(sound == "off"){
+        $(".buttonSound").css({"background-image": "url(../Image/speaker.png)"});
+        if(music=="on"){
+            turnOnAudio(audioTheme);
+        }
+        sound = "on";
+    }
+    else {
+        turnOffAudio(audioCompleted);
+        turnOffAudio(audioCongratulation);
         turnOffAudio(audioCorrect);
         turnOffAudio(audioWrong);
-        turnOffAudio(audioCompleted);
-        $(".buttonSound").css({"background-image": "url(../Image/btn_offSound.png)"});
+        turnOffAudio(audioTheme);
+        $(".buttonSound").css({"background-image": "url(../Image/mute.png)"});
         sound = "off";
     }
 });
 function turnOnSound() {
     sound = "on";
-    turnOnAudio(audioTheme);
+    if(music=="on"){
+        turnOnAudio(audioTheme);
+    }
     if(language == "vi") {
         $(".textSound:eq(1)").text('BẬT');
     }
@@ -155,7 +175,8 @@ function turnOnSound() {
     }
     $(".textSound:eq(1)").css({"margin-left": "62px"});
     $(".turnSound").css({"background-image": "url(../Image/onSound.png)"});
-    $(".buttonSound").css({"background-image": "url(../Image/btn_onSound.png)"});
+    $(".buttonMusic").css({"background-image": "url(../Image/btn_onSound.png)"});
+    $(".buttonSound").css({"background-image": "url(../Image/speaker.png)"});
 }
 function turnOffSound() {
     sound = "off";
@@ -168,7 +189,8 @@ function turnOffSound() {
     }
     $(".textSound:eq(1)").css({"margin-left": "100px"});
     $(".turnSound").css({"background-image": "url(../Image/offSound.png)"});
-    $(".buttonSound").css({"background-image": "url(../Image/btn_offSound.png)"});
+    $(".buttonMusic").css({"background-image": "url(../Image/btn_offSound.png)"});
+    $(".buttonSound").css({"background-image": "url(../Image/mute.png)"});
 }
 function turnOnAudio(audio) {
     $("audio")[audio].play();   
@@ -179,9 +201,14 @@ function turnOffAudio(audio){
 }
 function GotoLesson() {
     setTimeout(function(){
-        pointsRewardLesson[Lesson] = 100;
-        $(".textReward").text(pointsRewardLesson[Lesson]);
+        $(".textReward").text(pointsRewardLesson[Lesson-1]);
         $(".textPointsReward").text(pointsReward);
+        if(language=="vi"){
+            $(".level").text("CẤP ĐỘ " + Lesson);
+        }
+        else{
+            $(".level").text("LEVEL " + Lesson);
+        }
         $(".tool:eq(0)").show();
         $(".tool:eq(1)").show();
         addPartLesson(Lesson);
@@ -194,17 +221,19 @@ function GotoLesson() {
 }
 function nextLesson(){
     turnOffAudio(audioCompleted);
+    $("#menuCompleted").hide(500);
     pointsReward += pointsRewardLesson[Lesson-1];
     $(".textPointsReward").text(pointsReward);
+    $("#partLesson" + Lesson).remove();
+    $("#tagLocationLesson" + Lesson).remove();
+    $("#tagNameLesson" + Lesson).remove();
+    $("#letter").hide();
+    lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     Lesson += 1;
     if(Lesson > lessonNumber){
         GotoCongratulation();
         return;
     }
-    $("#partLesson" + Lesson).remove();
-    $("#tagLocationLesson" + Lesson).remove();
-    $("#tagNameLesson" + Lesson).remove();
-    lineContext.clearRect(0, 0, $("#line")[0].width, $("#line")[0].height);
     GotoLesson();
 }
 function GotoCompleted(){
@@ -212,6 +241,14 @@ function GotoCompleted(){
     $(".smallStar:eq(1)").hide();
     $(".bigStar").hide();
     $(".tool:eq(0)").hide(500);
+    if(language=="vi"){
+        $(".textCompleted:eq(0)").text("CẤP ĐỘ " + Lesson);
+        $(".textCompleted:eq(0)").css({"margin-left": "70px"});
+    }
+    else{
+        $(".textCompleted:eq(0)").text("LEVEL " + Lesson);
+        $(".textCompleted:eq(0)").css({"margin-left": "80px"});
+    }
     $("#menuCompleted").show(500);
     if(sound == "on"){
         turnOnAudio(audioCompleted);
@@ -242,11 +279,11 @@ function drawLine(x, y, x1, y1) {
 }
 function checkDrag(i) {
     tagName = i;
-    if(checkPart[tagName-5]) return;
+    if(checkPart[tagName-partNumber]) return;
     dragObject = $(".box:eq(" + tagName + ")");
     mainBig.mousemove(moveshape);
     dragObject.mousemove(moveshape);
-    if(checkEffect[tagName-5]){
+    if(checkEffect[tagName-partNumber]){
         expressDragObject = true;
     }
 }

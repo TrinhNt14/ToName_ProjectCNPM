@@ -26,6 +26,38 @@ lesson.push([
         // "imageSize" : "270px, 410px"
     }
 ]);
+lesson.push([
+    {
+        "class" : "bodyfish",
+        "image" : "../Image/Lesson_2/body.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "tail",
+        "image" : "../Image/Lesson_2/tail.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "fin",
+        "image" : "../Image/Lesson_2/fin.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "gills",
+        "image" : "../Image/Lesson_2/gills.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "eye",
+        "image" : "../Image/Lesson_2/eye.png"
+        // "imageSize" : "270px, 410px"
+    },
+    {
+        "class" : "mouth",
+        "image" : "../Image/Lesson_2/mouth.png"
+        // "imageSize" : "270px, 410px"
+    }
+]);
 
 var tagLocation = [];
 tagLocation.push([
@@ -48,6 +80,32 @@ tagLocation.push([
     {
         "left": "150px",
         "top": "200px"
+    }
+]);
+tagLocation.push([
+    {
+        "left": "150px",
+        "top": "380px"
+    },
+    {
+        "left": "600px",
+        "top": "500px"
+    },
+    {
+        "left": "600px",
+        "top": "350px"
+    },
+    {
+        "left": "150px",
+        "top": "240px"
+    },
+    {
+        "left": "600px",
+        "top": "230px"
+    },
+    {
+        "left": "150px",
+        "top": "180px"
     }
 ]);
 
@@ -94,6 +152,56 @@ tag_Name.push([
         "marginLeft": "7px"
     }
 ]);
+tag_Name.push([
+    {
+        "left": "80px",
+        "text": [
+            "THÂN",
+            "BODY"
+        ],
+        "marginLeft": "0px"
+    },
+    {
+        "left": "180px",
+        "text": [
+            "ĐUÔI",
+            "TAIL"
+        ],
+        "marginLeft": "5px"
+    },
+    {
+        "left": "280px",
+        "text": [
+            "VÂY",
+            "FIN"
+        ],
+        "marginLeft": "10px"
+    },
+    {
+        "left": "380px",
+        "text": [
+            "MANG",
+            "GILLS"
+        ],
+        "marginLeft": "0px"
+    },
+    {
+        "left": "480px",
+        "text": [
+            "MẮT",
+            "EYE"
+        ],
+        "marginLeft": "7px"
+    },
+    {
+        "left": "580px",
+        "text": [
+            "MỒM",
+            "MOUTH"
+        ],
+        "marginLeft": "7px"
+    }
+]);
 
 var line = [];
 line.push([
@@ -128,6 +236,45 @@ line.push([
         "y1" : "470"
     }
 ]);
+line.push([
+    {
+        "x" : "200",
+        "y" : "350",
+        "x1" : "380",
+        "y1" : "350"
+    },
+    {
+        "x" : "480",
+        "y" : "470",
+        "x1" : "600",
+        "y1" : "470"
+    },
+    {
+        "x" : "530",
+        "y" : "320",
+        "x1" : "600",
+        "y1" : "320"
+    },
+    {
+        "x" : "200",
+        "y" : "205",
+        "x1" : "400",
+        "y1" : "205"
+    },
+    {
+        "x" : "430",
+        "y" : "205",
+        "x1" : "600",
+        "y1" : "205"
+    },
+    {
+        "x" : "200",
+        "y" : "150",
+        "x1" : "380",
+        "y1" : "150"
+    }
+]);
+
 var question = [];
 question.push({
     "text": [
@@ -138,4 +285,14 @@ question.push({
         "../Audio/Lesson_1/question_vi_lesson1.mp3",
         "../Audio/Lesson_1/question_en_lesson1.mp3"
     ]
-})
+});
+question.push({
+    "text": [
+        "Đặt thẻ tên các bộ phận của con cá vào vị trí phù hợp trên hình.",
+        "Place the name tags of the fish parts in the appropriate positions on the picture."
+    ],
+    "audio": [
+        "../Audio/Lesson_2/question_vi_lesson2.mp3",
+        "../Audio/Lesson_2/question_en_lesson2.mp3"
+    ]
+});
