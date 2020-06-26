@@ -121,6 +121,8 @@ $(".Language:eq(0)").click(function(){
     $(".textCompleted:eq(0)").text("LEVEL " + Lesson);
     $(".textCompleted:eq(0)").css({"margin-left": "80px"});
     $(".level").text("LEVEL " + Lesson);
+    $(".textLessonCompleted").text("COMPLETED");
+    $(".textGotoLesson").text("GO TO LESSON");
     languageTagName();
 });
 $(".Language:eq(1)").click(function(){
@@ -149,6 +151,8 @@ $(".Language:eq(1)").click(function(){
     $(".textCompleted:eq(0)").text("CẤP ĐỘ " + Lesson);
     $(".textCompleted:eq(0)").css({"margin-left": "70px"});
     $(".level").text("CẤP ĐỘ " + Lesson);
+    $(".textLessonCompleted").text("HOÀN THÀNH");
+    $(".textGotoLesson").text("ĐI ĐẾN BÀI HỌC");
     languageTagName();
 });
 function languageTagName() {
