@@ -80,5 +80,5 @@ function checkDrop() {
         }
     }
     dragObject.css({"top" : "110px"});
-    dragObject.css({"left" : (150 + (tagName-partNumber)*100) + "px"});
+    dragObject.css({"left" : inputTagName[tagName-partNumber].left});
 }
