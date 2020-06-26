@@ -1,0 +1,57 @@
+#menuStart {
+    width: 800px;
+    height: 550px;
+    margin-left: calc(50% - 400px); 
+    margin-top: 47px;
+    border-radius: 20px;
+    background-image: url("../Image/menuStart.png");
+    background-position: 0px -50px;
+    position: absolute;
+}
+.start {
+    position: absolute;
+    background-image: url("../Image/start.png");
+    height: 100px;
+    width: 200px;
+    left: 300px;
+    top: 150px;
+    cursor: pointer;
+}
+.start:hover {
+    filter: contrast(150%);
+}
+.textStart {
+    font-family: 'Algerian';
+    font-size: 30px;
+    margin-left: 35px;
+    margin-top: 30px;
+    color: rgb(245, 3, 3);
+}
+.sound {
+    position: absolute;
+    background-image: url("../Image/sound.png");
+    height: 150px;
+    width: 200px;
+    left: 300px;
+    top: 300px;
+    cursor: pointer;
+}
+.textSound {
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+    color: rgb(245, 3, 3);
+}
+.turnSound {
+    position: absolute;
+    background-image: url("../Image/offSound.png");
+    height: 45px;
+    width: 90px;
+    margin-left: 55px;
+    margin-top: 65px;
+}
+.turnSound:hover {
+    filter: contrast(150%);
+}

@@ -1,0 +1,93 @@
+var tag_Name = [];
+tag_Name.push([
+    {
+        "left": "150px",
+        "text": [
+            "THÂN",
+            "TRUNK"
+        ],
+        "marginLeft": "0px"
+    },
+    {
+        "left": "250px",
+        "text": [
+            "RỄ",
+            "ROOT"
+        ],
+        "marginLeft": "15px"
+    },
+    {
+        "left": "350px",
+        "text": [
+            "LÁ",
+            "LEAF"
+        ],
+        "marginLeft": "15px"
+    },
+    {
+        "left": "450px",
+        "text": [
+            "HOA",
+            "FLOWER"
+        ],
+        "marginLeft": "7px"
+    },
+    {
+        "left": "550px",
+        "text": [
+            "QUẢ",
+            "FRUIT"
+        ],
+        "marginLeft": "7px"
+    }
+]);
+tag_Name.push([
+    {
+        "left": "80px",
+        "text": [
+            "THÂN",
+            "BODY"
+        ],
+        "marginLeft": "0px"
+    },
+    {
+        "left": "180px",
+        "text": [
+            "ĐUÔI",
+            "TAIL"
+        ],
+        "marginLeft": "5px"
+    },
+    {
+        "left": "280px",
+        "text": [
+            "VÂY",
+            "FIN"
+        ],
+        "marginLeft": "10px"
+    },
+    {
+        "left": "380px",
+        "text": [
+            "MANG",
+            "GILLS"
+        ],
+        "marginLeft": "0px"
+    },
+    {
+        "left": "480px",
+        "text": [
+            "MẮT",
+            "EYE"
+        ],
+        "marginLeft": "7px"
+    },
+    {
+        "left": "580px",
+        "text": [
+            "MỒM",
+            "MOUTH"
+        ],
+        "marginLeft": "7px"
+    }
+]);

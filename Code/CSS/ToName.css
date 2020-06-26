@@ -42,6 +42,85 @@ body {
 #back:hover {
     filter: contrast(150%);
 }
+.level{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 22px;
+    left: 170px;
+    top: 15px;
+    color: yellow;
+}
+#reward{
+    position: absolute;
+    background-image: url("../Image/reward.png");
+    height: 40px;
+    width: 64px;
+    left: 290px;
+    top: 5px;
+    cursor: pointer;
+    background-position: 0px -24px;
+}
+.textReward{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 15px;
+    margin-left: 32px;
+    margin-top: 15px;
+    color: yellow;
+}
+.buttonSound{
+    position: absolute;
+    background-image: url("../Image/mute.png");
+    height: 32px;
+    width: 32px;
+    left: 450px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttonSound:hover{
+    filter: contrast(150%);
+}
+.buttonMusic{
+    position: absolute;
+    background-image: url("../Image/btn_onSound.png");
+    height: 26px;
+    width: 32px;
+    left: 400px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttonMusic:hover{
+    filter: contrast(150%);
+}
+#pointsReward{
+    position: absolute;
+    background-image: url("../Image/smallScore.png");
+    height: 30px;
+    width: 80px;
+    left: 500px;
+    top: 10px;
+    cursor: pointer;
+}
+.textPointsReward{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 15px;
+    margin-left: 40px;
+    margin-top: 5px;
+    color: yellow;
+}
+.creation{
+    position: absolute;
+    background-image: url("../Image/creation.png");
+    height: 24px;
+    width: 24px;
+    left: 600px;
+    top: 10px;
+    cursor: pointer;
+}
+.creation:hover{
+    filter: contrast(150%);
+}
 #chooseLanguage {
     font-family: 'Algerian';
     font-size: 20px;
@@ -96,62 +175,8 @@ body {
     background-color: #267fbf;
     color: white;
 }
-#menuStart {
-    width: 800px;
-    height: 550px;
-    margin-left: calc(50% - 400px); 
-    margin-top: 47px;
-    border-radius: 20px;
-    background-image: url("../Image/menuStart.png");
-    background-position: 0px -50px;
-    position: absolute;
-}
-.start {
-    position: absolute;
-    background-image: url("../Image/start.png");
-    height: 100px;
-    width: 200px;
-    left: 300px;
-    top: 150px;
-    cursor: pointer;
-}
-.start:hover {
-    filter: contrast(150%);
-}
-.textStart {
-    font-family: 'Algerian';
-    font-size: 30px;
-    margin-left: 35px;
-    margin-top: 30px;
-    color: rgb(245, 3, 3);
-}
-.sound {
-    position: absolute;
-    background-image: url("../Image/sound.png");
-    height: 150px;
-    width: 200px;
-    left: 300px;
-    top: 300px;
-    cursor: pointer;
-}
-.textSound {
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 30px;
-    margin-left: 30px;
-    margin-top: 30px;
-    color: rgb(245, 3, 3);
-}
-.turnSound {
-    position: absolute;
-    background-image: url("../Image/offSound.png");
-    height: 45px;
-    width: 90px;
-    margin-left: 55px;
-    margin-top: 65px;
-}
-.turnSound:hover {
-    filter: contrast(150%);
+#bodyMain {
+    display: none;
 }
 #question {
     background-image: url("../Image/Question.png");
@@ -200,245 +225,4 @@ body {
     margin-left: 3px;
     margin-top: 5px;
     color: orange;
-}
-#bodyMain {
-    display: none;
-}
-#menuCompleted {
-    display: none;
-    width: 800px;
-    height: 555px;
-    margin-left: calc(50% - 400px); 
-    margin-top: 0px;
-    border-radius: 20px;
-    background-color: rgb(255,255,255,0.5);
-    position: absolute;
-}
-#completed {
-    position: absolute;
-    background-image: url("../Image/Completed/complete.png");
-    height: 270px;
-    width: 260px;
-    left: 270px;
-    top: 150px;
-    cursor: pointer;
-}
-.textCompleted {
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 30px;
-    margin-left: 70px;
-    margin-top: 85px;
-    color: yellow;
-}
-.smallStar {
-    position: absolute;
-    background-image: url("../Image/Completed/smallStar.png");
-    height: 65px;
-    width: 65px;
-    left: 22px;
-    top: 12px;
-    cursor: pointer;
-    display: none;
-}
-.bigStar {
-    position: absolute;
-    background-image: url("../Image/Completed/bigStar.png");
-    height: 85px;
-    width: 85px;
-    left: 92px;
-    top: 0px;
-    cursor: pointer;
-    display: none;
-}
-#next {
-    position: absolute;
-    background-image: url("../Image/Completed/next.png");
-    height: 76px;
-    width: 130px;
-    left: 340px;
-    top: 370px;
-    cursor: pointer;
-}
-#next:hover{
-    filter: contrast(150%);
-}
-.textNext {
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 22px;
-    margin-left: 20px;
-    margin-top: 20px;
-    color: rgb(245, 3, 3);
-}
-#pointsRewardLesson {
-    position: absolute;
-    background-image: url("../Image/Completed/bigScore.png");
-    height: 56px;
-    width: 150px;
-    left: 330px;
-    top: 310px;
-    cursor: pointer;
-}
-.textPointsRewardlesson {
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 30px;
-    margin-left: 80px;
-    margin-top: 10px;
-    color: yellow;
-}
-.restart {
-    position: absolute;
-    background-image: url("../Image/Completed/Restart.png");
-    height: 50px;
-    width: 60px;
-    left: 530px;
-    top: 140px;
-    cursor: pointer;
-}
-.restart:hover {
-    filter: contrast(150%);
-}
-.buttonSound{
-    position: absolute;
-    background-image: url("../Image/mute.png");
-    height: 32px;
-    width: 32px;
-    left: 450px;
-    top: 10px;
-    cursor: pointer;
-}
-.buttonSound:hover{
-    filter: contrast(150%);
-}
-.buttonMusic{
-    position: absolute;
-    background-image: url("../Image/btn_onSound.png");
-    height: 26px;
-    width: 32px;
-    left: 400px;
-    top: 10px;
-    cursor: pointer;
-}
-.buttonSound:hover{
-    filter: contrast(150%);
-}
-#pointsReward{
-    position: absolute;
-    background-image: url("../Image/smallScore.png");
-    height: 30px;
-    width: 80px;
-    left: 500px;
-    top: 10px;
-    cursor: pointer;
-}
-.textPointsReward{
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 15px;
-    margin-left: 40px;
-    margin-top: 5px;
-    color: yellow;
-}
-.creation{
-    position: absolute;
-    background-image: url("../Image/creation.png");
-    height: 24px;
-    width: 24px;
-    left: 600px;
-    top: 10px;
-    cursor: pointer;
-}
-.creation:hover{
-    filter: contrast(150%);
-}
-.level{
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 22px;
-    left: 170px;
-    top: 15px;
-    color: yellow;
-}
-#reward{
-    position: absolute;
-    background-image: url("../Image/reward.png");
-    height: 40px;
-    width: 64px;
-    left: 290px;
-    top: 5px;
-    cursor: pointer;
-    background-position: 0px -24px;
-}
-.textReward{
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 15px;
-    margin-left: 32px;
-    margin-top: 15px;
-    color: yellow;
-}
-#congratulation{
-    display: none;
-    position: absolute;
-    background-image: url("../Image/Completed/congratulations.png");
-    width: 800px;
-    height: 600px;
-    margin-left: calc(50% - 400px); 
-    margin-top: -45px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px black;
-}
-#lessonCompleted{
-    position: absolute;
-    background-image: url("../Image/Completed/lesson_completed.png");
-    width: 550px;
-    height: 250px;
-    margin-left: 150px; 
-    margin-top: 300px;
-}
-.textLessonCompleted{
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 40px;
-    margin-left: 150px;
-    margin-top: 20px;
-    color: white;
-}
-#score{
-    position: absolute;
-    background-image: url("../Image/Completed/bigScore.png");
-    width: 150px;
-    height: 56px;
-    margin-left: 200px; 
-    margin-top: 70px;
-}
-.textScore{
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 30px;
-    margin-left: 70px;
-    margin-top: 10px;
-    color: yellow;
-}
-#gotoLesson{
-    position: absolute;
-    background-image: url("../Image/Completed/Gotolesson.png");
-    width: 200px;
-    height: 100px;
-    margin-left: 180px; 
-    margin-top: 150px;
-}
-#gotoLesson:hover{
-    filter: contrast(150%);
-}
-.textGotoLesson{
-    position: absolute;
-    font-family: 'Algerian';
-    font-size: 20px;
-    margin-left: 30px;
-    margin-top: 30px;
-    color: red;
-    cursor: pointer;
 }

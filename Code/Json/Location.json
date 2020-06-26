@@ -1,0 +1,49 @@
+var tagLocation = [];
+tagLocation.push([
+    {
+        "left": "150px",
+        "top": "400px"
+    },
+    {
+        "left": "600px",
+        "top": "500px"
+    },
+    {
+        "left": "600px",
+        "top": "200px"
+    },
+    {
+        "left": "600px",
+        "top": "350px"
+    },
+    {
+        "left": "150px",
+        "top": "200px"
+    }
+]);
+tagLocation.push([
+    {
+        "left": "150px",
+        "top": "380px"
+    },
+    {
+        "left": "600px",
+        "top": "500px"
+    },
+    {
+        "left": "600px",
+        "top": "350px"
+    },
+    {
+        "left": "150px",
+        "top": "240px"
+    },
+    {
+        "left": "600px",
+        "top": "230px"
+    },
+    {
+        "left": "150px",
+        "top": "180px"
+    }
+]);

@@ -1,0 +1,21 @@
+var question = [];
+question.push({
+    "text": [
+        "Đặt thẻ tên các bộ phận của cây vào vị trí phù hợp trên hình.",
+        "Place the name tags of the tree parts in the appropriate positions on the picture."
+    ],
+    "audio": [
+        "../Audio/Lesson_1/question_vi_lesson1.mp3",
+        "../Audio/Lesson_1/question_en_lesson1.mp3"
+    ]
+});
+question.push({
+    "text": [
+        "Đặt thẻ tên các bộ phận của con cá vào vị trí phù hợp trên hình.",
+        "Place the name tags of the fish parts in the appropriate positions on the picture."
+    ],
+    "audio": [
+        "../Audio/Lesson_2/question_vi_lesson2.mp3",
+        "../Audio/Lesson_2/question_en_lesson2.mp3"
+    ]
+});
