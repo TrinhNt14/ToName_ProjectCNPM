@@ -301,3 +301,70 @@ body {
 .restart:hover {
     filter: contrast(150%);
 }
+.buttonSound{
+    position: absolute;
+    background-image: url("../Image/btn_offSound.png");
+    height: 26px;
+    width: 32px;
+    left: 450px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttonSound:hover{
+    filter: contrast(150%);
+}
+#pointsReward{
+    position: absolute;
+    background-image: url("../Image/smallScore.png");
+    height: 30px;
+    width: 80px;
+    left: 500px;
+    top: 10px;
+    cursor: pointer;
+}
+.textPointsReward{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 15px;
+    margin-left: 40px;
+    margin-top: 5px;
+    color: yellow;
+}
+.creation{
+    position: absolute;
+    background-image: url("../Image/creation.png");
+    height: 24px;
+    width: 24px;
+    left: 600px;
+    top: 10px;
+    cursor: pointer;
+}
+.creation:hover{
+    filter: contrast(150%);
+}
+.level{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 22px;
+    left: 200px;
+    top: 15px;
+    color: yellow;
+}
+#reward{
+    position: absolute;
+    background-image: url("../Image/reward.png");
+    height: 40px;
+    width: 64px;
+    left: 320px;
+    top: 5px;
+    cursor: pointer;
+    background-position: 0px -24px;
+}
+.textReward{
+    position: absolute;
+    font-family: 'Algerian';
+    font-size: 15px;
+    margin-left: 32px;
+    margin-top: 15px;
+    color: yellow;
+}

@@ -40,6 +40,7 @@ $(".Language:eq(0)").click(function(){
     $(".textNext").css({"font-size": "35px", "margin-top": "12px"});
     $(".textCompleted:eq(0)").text("LEVEL " + Lesson);
     $(".textCompleted:eq(0)").css({"margin-left": "80px"});
+    $(".level").text("LEVEL " + Lesson);
     languageTagName();
 });
 $(".Language:eq(1)").click(function(){
@@ -66,6 +67,7 @@ $(".Language:eq(1)").click(function(){
     $(".textNext").css({"font-size": "22px", "margin-top": "20px"});
     $(".textCompleted:eq(0)").text("CẤP ĐỘ " + Lesson);
     $(".textCompleted:eq(0)").css({"margin-left": "70px"});
+    $(".level").text("CẤP ĐỘ " + Lesson);
     languageTagName();
 });
 function languageTagName() {
@@ -109,7 +111,22 @@ $(".turnSound").click(function(){
     else {
         turnOffSound();
     }
-})
+});
+$(".buttonSound").click(function(){
+    if(sound == "off") {
+        turnOnAudio(audioTheme);
+        $(".buttonSound").css({"background-image": "url(../Image/btn_onSound.png)"});
+        sound = "on";
+    }
+    else {
+        turnOffAudio(audioTheme);
+        turnOffAudio(audioCorrect);
+        turnOffAudio(audioWrong);
+        turnOffAudio(audioCompleted);
+        $(".buttonSound").css({"background-image": "url(../Image/btn_offSound.png)"});
+        sound = "off";
+    }
+});
 function turnOnSound() {
     sound = "on";
     turnOnAudio(audioTheme);
@@ -121,6 +138,7 @@ function turnOnSound() {
     }
     $(".textSound:eq(1)").css({"margin-left": "62px"});
     $(".turnSound").css({"background-image": "url(../Image/onSound.png)"});
+    $(".buttonSound").css({"background-image": "url(../Image/btn_onSound.png)"});
 }
 function turnOffSound() {
     sound = "off";
@@ -133,6 +151,7 @@ function turnOffSound() {
     }
     $(".textSound:eq(1)").css({"margin-left": "100px"});
     $(".turnSound").css({"background-image": "url(../Image/offSound.png)"});
+    $(".buttonSound").css({"background-image": "url(../Image/btn_offSound.png)"});
 }
 function turnOnAudio(audio) {
     $("audio")[audio].play();   
@@ -144,6 +163,10 @@ function turnOffAudio(audio){
 function GotoLesson() {
     setTimeout(function(){
         pointsRewardLesson[Lesson] = 100;
+        $(".textReward").text(pointsRewardLesson[Lesson]);
+        $(".textPointsReward").text(pointsReward);
+        $(".tool:eq(0)").show();
+        $(".tool:eq(1)").show();
         addPartLesson(Lesson);
         addTagLocation(Lesson);
         addTagName(Lesson);
@@ -155,6 +178,7 @@ function GotoLesson() {
 function nextLesson(){
     turnOffAudio(audioCompleted);
     pointsReward += pointsRewardLesson[Lesson-1];
+    $(".textPointsReward").text(pointsReward);
     Lesson += 1;
     if(Lesson > lessonNumber){
         GotoCongratulate();
@@ -167,14 +191,27 @@ function nextLesson(){
     GotoLesson();
 }
 function GotoCompleted(){
+    $(".smallStar:eq(0)").hide();
+    $(".smallStar:eq(1)").hide();
+    $(".bigStar").hide();
+    $(".tool:eq(0)").hide(500);
     $("#menuCompleted").show(500);
     if(sound == "on"){
         turnOnAudio(audioCompleted);
     }
     $(".textPointsRewardlesson").text(pointsRewardLesson[Lesson-1]);
+    if(pointsRewardLesson[Lesson-1] > 0){
+        $(".smallStar:eq(0)").show(1000);
+    }
+    if(pointsRewardLesson[Lesson-1] >= (Lesson*100/2)){
+        $(".smallStar:eq(1)").show(2000);
+    }
+    if(pointsRewardLesson[Lesson-1] == (Lesson*100)){
+        $(".bigStar").show(3000);
+    }
 }
 function GotoCongratulate(){
-    alert(10);
+    alert($(".textPointsReward").text());
 }
 function drawLine(x, y, x1, y1) {
     lineContext.moveTo(x,y);
@@ -222,13 +259,14 @@ function checkDrop() {
             if(sound == "on"){
                 turnOnAudio(audioCorrect);
             }
-            dragObject.css({"left" : (locationLeft - 274) + "px"});
+            $(".box:eq(" + (tagName - partNumber) + ")").hide();
+            dragObject.css({"left" : (locationLeft - 283) + "px"});
             dragObject.css({"top" : (locationTop - dragObject.outerHeight() + 15) + "px"});
-            dragObject.animate({left: (locationLeft - 270) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
-            dragObject.animate({left: (locationLeft - 274) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
-            dragObject.animate({left: (locationLeft - 270) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
-            dragObject.animate({left: (locationLeft - 270) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
-            dragObject.animate({left: (locationLeft - 274) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
+            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 283) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
+            dragObject.animate({left: (locationLeft - 280) + "px",top:(locationTop - dragObject.outerHeight() + 10) + "px"},300);
+            dragObject.animate({left: (locationLeft - 283) + "px",top:(locationTop - dragObject.outerHeight() + 15) + "px"},300);
             if(scoreLesson == 0){
                 setTimeout(GotoCompleted,3000);
                 return;
@@ -237,12 +275,13 @@ function checkDrop() {
             return;
         }
     }
-    if(pointsRewardLesson[Lesson-1] >= 10){
-        pointsRewardLesson[Lesson-1] -= 10;
+    if(pointsRewardLesson[Lesson-1] > (10*Lesson)){
+        pointsRewardLesson[Lesson-1] -= (10*Lesson);
     }
     else{
         pointsRewardLesson[Lesson-1] = 0;
     }
+    $(".textReward").text(pointsRewardLesson[Lesson-1]);
     if(sound == "on"){
         turnOnAudio(audioWrong);
     }
@@ -275,6 +314,13 @@ function randomPart() {
         $(".box:eq(" + (idPart + partNumber) + ")").css({"background-color": "rgb(0, 255, 255)"});
     });
     effectPart();
+
+}
+function effectPart() {
+    for(var i = 0; i < loopEffectNumber ; i++){
+        $(".box:eq(" + idPart + ")").toggle(500);
+        $("." + part[idPart]).toggle(500);
+    }
     setTimeout(function(){
         if(language == "vi"){
             $(".box:eq(" + idPart + ")").animate({
@@ -290,16 +336,12 @@ function randomPart() {
         }
         checkEffect[idPart] = true;
     },5000);
-
-}
-function effectPart() {
-    for(var i = 0; i < loopEffectNumber ; i++){
-        $(".box:eq(" + idPart + ")").toggle(500);
-        $("." + part[idPart]).toggle(500);
-    }
 }
 function addPartLesson(i){
     inputPartLesson =  JSON.parse(JSON.stringify(lesson[i-1]));
+    part.splice(0,partNumber);
+    checkPart.splice(0,partNumber);
+    checkEffect.splice(0,partNumber);
     partNumber = inputPartLesson.length;
     scoreLesson = partNumber;
     var idpartLesson = "partLesson" + i;

@@ -25,6 +25,6 @@ var loopEffectNumber = 10;
 var Lesson = 1;
 var lessonNumber = JSON.parse(JSON.stringify(lesson)).length;
 for(var i=0; i<lessonNumber; i++){
-    pointsRewardLesson.push(100);
+    pointsRewardLesson.push(100*Lesson);
 }
 var lineContext = $("#line")[0].getContext("2d");
