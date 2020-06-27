@@ -19,7 +19,7 @@
 }
 .textCompleted {
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 30px;
     margin-left: 70px;
     margin-top: 85px;
@@ -59,9 +59,9 @@
 }
 .textNext {
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 22px;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: 20px;
     color: rgb(245, 3, 3);
 }
@@ -76,7 +76,7 @@
 }
 .textPointsRewardlesson {
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 30px;
     margin-left: 80px;
     margin-top: 10px;
@@ -115,9 +115,9 @@
 }
 .textLessonCompleted{
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 40px;
-    margin-left: 150px;
+    margin-left: 145px;
     margin-top: 20px;
     color: white;
 }
@@ -131,7 +131,7 @@
 }
 .textScore{
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 30px;
     margin-left: 70px;
     margin-top: 10px;
@@ -150,9 +150,9 @@
 }
 .textGotoLesson{
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 20px;
-    margin-left: 30px;
+    margin-left: 25px;
     margin-top: 30px;
     color: red;
     cursor: pointer;

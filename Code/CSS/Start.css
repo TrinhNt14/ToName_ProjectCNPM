@@ -21,7 +21,7 @@
     filter: contrast(150%);
 }
 .textStart {
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 30px;
     margin-left: 35px;
     margin-top: 30px;
@@ -38,9 +38,9 @@
 }
 .textSound {
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 30px;
-    margin-left: 30px;
+    margin-left: 25px;
     margin-top: 30px;
     color: rgb(245, 3, 3);
 }

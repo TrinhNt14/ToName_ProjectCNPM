@@ -20,7 +20,7 @@ body {
 }
 #back {
     text-decoration: none;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 20px;
     color: yellow;
     top: 15px;
@@ -44,7 +44,7 @@ body {
 }
 .level{
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 22px;
     left: 170px;
     top: 15px;
@@ -62,7 +62,7 @@ body {
 }
 .textReward{
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 15px;
     margin-left: 32px;
     margin-top: 15px;
@@ -103,7 +103,7 @@ body {
 }
 .textPointsReward{
     position: absolute;
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 15px;
     margin-left: 40px;
     margin-top: 5px;
@@ -122,12 +122,12 @@ body {
     filter: contrast(150%);
 }
 #chooseLanguage {
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 20px;
     color: yellow;
     position: absolute;
     top: 15px;
-    left: 660px;
+    left: 650px;
     cursor: pointer;
     width: 120px;
     filter: contrast(80%);
@@ -141,7 +141,7 @@ body {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid #2a5a86;
-    margin-left: calc(100% - 15px);
+    margin-left: calc(100% - 5px);
     margin-top: -20px;
 }
 #triangle:hover {
@@ -162,7 +162,7 @@ body {
 
 }
 .Language {
-    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-family: Serif, Helvetica, Arial, sans-serif;
     font-size: 20px;
     color:black;
     cursor: pointer;
@@ -197,7 +197,7 @@ body {
     background-size: cover;
     border-radius: 5px;
     position: absolute;
-    font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     left: 75px;
     top: 70px;
@@ -220,7 +220,7 @@ body {
 }
 .textBox {
     position: absolute;
-    font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     margin-left: 3px;
     margin-top: 5px;
