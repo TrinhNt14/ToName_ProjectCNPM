@@ -1,12 +1,13 @@
 body {
     margin: 0;
-    background-image: url("../Image/Background.jpg");
-    background-repeat: no-repeat;
+    background-image: url("../Image/Background.jpeg");
+    background-position: auto, 3000px;
+    background-repeat: repeat;
     background-size: 100% auto;
 }
 #mainBig {
     position: absolute;
-    background-image: url("../Image/Main_background.jpg");
+    background-image: url("../Image/Main_background.jpeg");
     width: 800px;
     height: 600px;
     margin-left: calc(50% - 400px); 
