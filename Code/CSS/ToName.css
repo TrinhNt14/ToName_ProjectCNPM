@@ -1,13 +1,12 @@
 body {
     margin: 0;
-    background-image: url("../Image/Background.jpeg");
-    background-position: auto, 3000px;
-    background-repeat: repeat;
+    background-image: url("../Image/Background.jpg");
+    background-repeat: no-repeat;
     background-size: 100% auto;
 }
 #mainBig {
     position: absolute;
-    background-image: url("../Image/Main_background.jpeg");
+    background-image: url("../Image/Main_background.jpg");
     width: 800px;
     height: 600px;
     margin-left: calc(50% - 400px); 
@@ -21,7 +20,7 @@ body {
 }
 #back {
     text-decoration: none;
-    font-family: 'Algerian';
+    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 20px;
     color: yellow;
     top: 15px;
@@ -45,7 +44,7 @@ body {
 }
 .level{
     position: absolute;
-    font-family: 'Algerian';
+    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 22px;
     left: 170px;
     top: 15px;
@@ -63,7 +62,7 @@ body {
 }
 .textReward{
     position: absolute;
-    font-family: 'Algerian';
+    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 15px;
     margin-left: 32px;
     margin-top: 15px;
@@ -104,7 +103,7 @@ body {
 }
 .textPointsReward{
     position: absolute;
-    font-family: 'Algerian';
+    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 15px;
     margin-left: 40px;
     margin-top: 5px;
@@ -123,7 +122,7 @@ body {
     filter: contrast(150%);
 }
 #chooseLanguage {
-    font-family: 'Algerian';
+    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 20px;
     color: yellow;
     position: absolute;
@@ -163,7 +162,7 @@ body {
 
 }
 .Language {
-    font-family: 'Algerian';
+    font-family: 'Algerian', Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 20px;
     color:black;
     cursor: pointer;

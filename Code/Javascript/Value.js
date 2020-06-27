@@ -20,7 +20,6 @@ var scoreLesson;
 var pointsRewardLesson = [];
 var inputTagName = JSON.parse(JSON.stringify(tag_Name[0]));
 var inputTagLocation;
-var inputTagLocation;
 var inputLine;
 var inputQuestion = JSON.parse(JSON.stringify(question[0]));
 var partNumber = 0;
