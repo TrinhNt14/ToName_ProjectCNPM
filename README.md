@@ -1,25 +1,26 @@
-ToName_ProjectCNPM
-1. Mô t?:
-o ?ây là d? án cu?i k? môn Công ngh? ph?n m?m có tên là To Name
-o Ph?n m?m này giúp ng??i ch?i có th? bi?t hình ?nh và tên c?a các ??i t??ng trong thiên nhiên nh?: th?c v?t, ??ng v?t b?ng thao tác kéo th? chu?t.
-2. C?u trúc d? án g?m 1 màn hình kh?i ??ng, các bài h?c(s? l??ng tùy theo d? li?u ban ??u), màn hình k?t thúc m?i bài và màn hình chúc m?ng hoàn thành khóa h?c:
-o Màn hình kh?i ??ng: T?t, b?t âm thanh; chuy?n ??i ngôn ng? và nút ch?n ?? b?t ??u vào bài h?c.
-o Bài h?c: S? l??ng tùy theo d? li?u vào, s? bao g?m yêu c?u, hình ?nh và các th? tên ?ng v?i các b? ph?n trong hình.
-o Màn hình k?t thúc m?i bài h?c: s? bao g?m sao ?ánh giá, ?i?m, làm l?i và nh?n nút “ti?p theo” ?? qua bài ti?p theo.
-o Màn hình chúc m?ng cu?i cùng: nh?n "Quay l?i bài h?c" ?? quay l?i màn hình kh?i ??ng.
-3. Các thao tác chính:
-o Nh?n chu?t và kéo th? ?? ??t v?t ?úng v? trí.
-o Nh?n Tr? v? ?? quay l?i màn hình ch?n bài h?c.
-o Nh?n Ti?ng vi?t ?? ??i ngôn ng?: ti?ng Anh, ti?ng Vi?t.
-o Nh?n bi?u t??ng câu h?i ?? nghe nhi?m v? màn ch?i.
-o Nh?n vào bi?u t??ng g?i ı ?? nh?p nháy b? ph?n g?i ı hoàn thành bài.
-4. D? li?u: ??u ???c l?y t? các file .json:
-o Các hình ?nh b? ph?n s? ???c l?y t? file Part.json. ?? thêm d? li?u ch? c?n thêm m?t ph?n t? c?a m?ng lesson trong file Part.json v?i d? li?u ph?n t? ?ó bao g?m: tên gán cho “class” và link ??n hình ?nh có kích th??c 270x410px gán cho “image”.
-o Các d? li?u v? th? tên các b? ph?n s? ???c l?y t? file tagName.json. ?? thêm d? li?u ch? c?n thêm m?t ph?n t? c?a m?ng tag_Name trong file tagName.json v?i d? li?u ph?n t? ?ó bao g?m: c?n trái gán cho “left”, tên ti?ng vi?t, ti?ng anh gán cho m?ng “text” và c?n l? trái c?a ch? gán cho “marginLeft”.
-o Các d? li?u v? th? ?ích c?a các th? tên s? ???c l?y t? file Location.json. ?? thêm d? li?u ch? c?n thêm m?t ph?n t? c?a m?ng tagLoaction trong file Location.json v?i d? li?u ph?n t? ?ó bao g?m: c?n trái gán cho “left” và c?n trên gán cho “top”.
-o Các d? li?u v? ???ng n?i b? ph?n và th? ?ích ???c l?y t? file Line.json. ?? thêm d? li?u ch? c?n thêm m?t ph?n t? c?a m?ng line trong file Line.json v?i d? li?u ph?n t? ?ó bao g?m: v? trí ?i?m ??u v?i hai t?a ?? t??ng ?ng gán cho “x”, “y” và v? trí ?i?m cu?i v?i hai t?a ?? t??ng ?ng gán cho “x1”, “y1”.
-o Các d? li?u v? câu h?i yêu c?u ???c l?y t? file Question.json. ?? thêm d? li?u ch? c?n thêm m?t ph?n t? c?a m?ng question trong file Question.json v?i d? li?u ph?n t? ?ó bao g?m: yêu c?u b?ng ti?ng vi?t và ti?ng anh t??ng ?ng gán cho m?ng “text” và link ??n âm thanh yêu c?u b?ng ti?ng vi?t và ti?ng anh t??ng ?ng gán cho m?ng “audio”.
-5. N?n t?ng:
-o JAVASCRIPT - JQUERY.
-o HTML.
-o CSS
+                                                    ToName_ProjectCNPM
+1. MÃ´ táº£:
+	o ÄÃ¢y lÃ  dá»± Ã¡n cuá»‘i ká»³ mÃ´n CÃ´ng nghá»‡ pháº§n má»m cÃ³ tÃªn lÃ  To Name
+	o Pháº§n má»m nÃ y giÃºp ngÆ°á»i chÆ¡i cÃ³ thá»ƒ biáº¿t hÃ¬nh áº£nh vÃ  tÃªn cá»§a cÃ¡c Ä‘á»‘i tÆ°á»£ng trong thiÃªn nhiÃªn nhÆ°: thá»±c váº­t, Ä‘á»™ng váº­t báº±ng thao tÃ¡c kÃ©o tháº£ chuá»™t.
+2. Cáº¥u trÃºc dá»± Ã¡n gá»“m 1 mÃ n hÃ¬nh khá»Ÿi Ä‘á»™ng, cÃ¡c bÃ i há»c(sá»‘ lÆ°á»£ng tÃ¹y theo dá»¯ liá»‡u ban Ä‘áº§u), mÃ n hÃ¬nh káº¿t thÃºc má»—i bÃ i vÃ  mÃ n hÃ¬nh chÃºc má»«ng hoÃ n thÃ nh khÃ³a há»c:
+	o MÃ n hÃ¬nh khá»Ÿi Ä‘á»™ng: Táº¯t, báº­t Ã¢m thanh; chuyá»ƒn Ä‘á»•i ngÃ´n ngá»¯ vÃ  nÃºt chuyá»ƒn báº¯t Ä‘áº§u vÃ o bÃ i há»c.
+	o BÃ i há»c: Sá»‘ lÆ°á»£ng tÃ¹y theo dá»¯ liá»‡u vÃ o, bao gá»“m yÃªu cáº§u, hÃ¬nh áº£nh vÃ  tÃªn cÃ¡c bá»™ pháº­n trong hÃ¬nh.
+	o MÃ n hÃ¬nh káº¿t thÃºc má»—i bÃ i há»c: bao gá»“m sao Ä‘Ã¡nh giÃ¡, Ä‘iá»ƒm, lÃ m láº¡i vÃ  nháº¥n nÃºt â€œtiáº¿p theoâ€ Ä‘á»ƒ qua bÃ i tiáº¿p theo.
+	o MÃ n hÃ¬nh chÃºc má»«ng cuá»‘i cÃ¹ng: nháº¥n "Quay láº¡i bÃ i há»c" Ä‘á»ƒ quay láº¡i mÃ n hÃ¬nh khá»Ÿi Ä‘á»™ng.
+3. CÃ¡c thao tÃ¡c chÃ­nh
+	o Nháº¥n chuá»™t vÃ  kÃ©o tháº£ Ä‘á»ƒ Ä‘áº·t váº­t Ä‘Ãºng vá»‹ trÃ­.
+	o Nháº¥n Trá»Ÿ vá» Ä‘á»ƒ quay láº¡i mÃ n hÃ¬nh chá»n bÃ i há»c.
+	o Nháº¥n Tiáº¿ng viá»‡t Ä‘á»ƒ Ä‘á»•i ngÃ´n ngá»¯: tiáº¿ng Anh, tiáº¿ng Viá»‡t.
+	o Nháº¥n biá»ƒu tÆ°á»£ng cÃ¢u há»i Ä‘á»ƒ nghe nhiá»‡m vá»¥ mÃ n chÆ¡i.
+	o Nháº¥n biá»ƒu tÆ°á»£ng gá»£i Ã½ Ä‘á»ƒ gá»£i Ã½ lÃ m bÃ i
+4. Dá»¯ liá»‡u: láº¥y tá»« file json. Äá»ƒ thÃªm mÃ n chÆ¡i chá»‰ cáº§n thÃªm pháº§n tá»­ máº£ng trong cÃ¡c file json vá»›i dá»¯ liá»‡u tÆ°Æ¡ng á»©ng:
+	o Láº¥y dá»¯ liá»‡u vá» cÃ¡c bá»™ pháº­n tá»« file Part.json.
+	o Láº¥y dá»¯ liá»‡u cÃ¡c tháº» tÃªn tá»« file tagName.json.
+	o Láº¥y dá»¯ liá»‡u cÃ¡c tháº» Ä‘Ã­ch tá»«u file Location.json.
+	o Láº¥y dá»¯ liá»‡u cÃ¡c Ä‘Æ°á»ng ná»‘i tháº» Ä‘Ã­ch vÃ  bá»™ pháº­n trong file Line.json.
+	o Láº¥y dá»¯ liá»‡u vá» yÃªu cáº§u tá»« file Question.json.
+
+5. Ná»n táº£ng:
+	o JAVASCRIPT - JQUERY.
+	o HTML.
+	o CSS
