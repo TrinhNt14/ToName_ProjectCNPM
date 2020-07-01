@@ -134,7 +134,7 @@ $(".Language:eq(1)").click(function(){
     $(".textStart").text('BẮT ĐẦU');
     $(".textStart").css({"margin-left": "35px"});
     $(".textSound:eq(0)").text('ÂM THANH');
-    $(".textSound:eq(0)").css({"margin-left": "35px"});
+    $(".textSound:eq(0)").css({"margin-left": "20px"});
     if(sound == "off") {
         $(".textSound:eq(1)").text('TẮT');
     }

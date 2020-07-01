@@ -83,7 +83,7 @@ $(".restart").click(function(){
     GotoLesson();
 });
 $("#gotoLesson").click(function(){
-    window.location = "../HTML/ToName.html";
+    window.location = "../Html/ToName.html";
 });
 function GotoCompleted(){
     $(".smallStar:eq(0)").hide();
