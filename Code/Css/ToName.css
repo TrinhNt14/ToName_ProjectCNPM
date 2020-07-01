@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    background-image: url("../Image/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+#mainBig {
+    position: absolute;
+    background-image: url("../Image/Main_background.jpg");
+    width: 800px;
+    height: 600px;
+    margin-left: calc(50% - 400px); 
+    margin-top: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+}
+#header {
+    height: 45px;
+    border-bottom: 2px solid white;
+}
+#back {
+    text-decoration: none;
+    font-family: Serif, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: yellow;
+    top: 15px;
+    left: 50px;
+    position: absolute;
+    filter: contrast(80%);
+}
+.btn_back {
+    position: absolute;
+    background-image: url("../Image/back.png");
+    background-position: 150px 0px;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    top: -2px;
+    left: -35px;
+    filter: contrast(130%);
+}
+#back:hover {
+    filter: contrast(150%);
+}
+.level{
+    position: absolute;
+    font-family: Serif, Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    left: 170px;
+    top: 15px;
+    color: yellow;
+}
+#reward{
+    position: absolute;
+    background-image: url("../Image/reward.png");
+    height: 40px;
+    width: 64px;
+    left: 290px;
+    top: 5px;
+    cursor: pointer;
+    background-position: 0px -24px;
+}
+.textReward{
+    position: absolute;
+    font-family: Serif, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    margin-left: 32px;
+    margin-top: 15px;
+    color: yellow;
+}
+.buttonSound{
+    position: absolute;
+    background-image: url("../Image/mute.png");
+    height: 32px;
+    width: 32px;
+    left: 450px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttonSound:hover{
+    filter: contrast(150%);
+}
+.buttonMusic{
+    position: absolute;
+    background-image: url("../Image/btn_onSound.png");
+    height: 26px;
+    width: 32px;
+    left: 400px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttonMusic:hover{
+    filter: contrast(150%);
+}
+#pointsReward{
+    position: absolute;
+    background-image: url("../Image/smallScore.png");
+    height: 30px;
+    width: 80px;
+    left: 500px;
+    top: 10px;
+    cursor: pointer;
+}
+.textPointsReward{
+    position: absolute;
+    font-family: Serif, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    margin-left: 40px;
+    margin-top: 5px;
+    color: yellow;
+}
+.creation{
+    position: absolute;
+    background-image: url("../Image/creation.png");
+    height: 24px;
+    width: 24px;
+    left: 600px;
+    top: 10px;
+    cursor: pointer;
+}
+.creation:hover{
+    filter: contrast(150%);
+}
+#chooseLanguage {
+    font-family: Serif, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: yellow;
+    position: absolute;
+    top: 15px;
+    left: 650px;
+    cursor: pointer;
+    width: 120px;
+    filter: contrast(80%);
+}
+#chooseLanguage:hover {
+    filter: contrast(150%);
+}
+#triangle {
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #2a5a86;
+    margin-left: calc(100% - 5px);
+    margin-top: -20px;
+}
+#triangle:hover {
+    border-top: 10px solid #2a867e;
+}
+#languageDialog {
+    border: 1px solid #cfcccc;
+    box-shadow: 0 0 5px #cfcccc;
+    border-radius: 6px;
+    width: 140px;
+    height: 70px;
+    left: calc(50% + 260px);
+    top: 40px;
+    background-color: white;
+    display: none;
+    z-index: 2;
+    position: absolute;
+
+}
+.Language {
+    font-family: Serif, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color:black;
+    cursor: pointer;
+    width: 120px;
+    height: 24px;
+    padding-top: 4px;
+    padding-left: 20px;
+}
+.Language:hover {
+    background-color: #267fbf;
+    color: white;
+}
+#bodyMain {
+    display: none;
+}
+#question {
+    background-image: url("../Image/Question.png");
+    width: 32px;
+    height: 26px;
+    top: 70px;
+    left: 35px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+}   
+#question:hover {
+    filter: contrast(150%);
+}
+#letter {
+    background-color: rgba(255, 255, 255, 0.9);
+    background-size: cover;
+    border-radius: 5px;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    left: 75px;
+    top: 70px;
+    color: red;
+    cursor: pointer;
+    display: none;
+}
+.box {
+    width: 60px;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    left: 150px;
+    top: 110px;
+    position: absolute;
+    cursor: pointer;
+}
+.box:hover {
+    background-color: rgb(0, 132, 255);
+}
+.textBox {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 3px;
+    margin-top: 5px;
+    color: orange;
+}
